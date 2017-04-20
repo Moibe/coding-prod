@@ -52,3 +52,7 @@ z-index: -1;
 .container-fluid img{
 	z-index: 10;
 }
+
+.parallax-slider{
+    height: 143px !important;
+}
