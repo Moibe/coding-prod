@@ -55,10 +55,4 @@ z-index: -1;
 
 .parallax-slider{
     height: 143px !important;
-    z-index: 99999;
-    background-color: white;
-}
-
-.motopress-wrapper header{
-    z-index: 999999;
 }
