@@ -18,12 +18,15 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository('AppBundle:Category');
         $result = $repository->findAll();
 
-        return array('cat' => $result);
+        $repositoryp = $this->getDoctrine()->getRepository('AppBundle:Product');
+        $pr = $repositoryp->findAll();
+
+        return array('cat' => $result, 'prod' => $pr);
     }
 
     /**
      * @Route("/categoria/{slug}", name="categoria")
-     * @Template("AppBundle:categoria:new.html.twig")
+     * @Template("AppBundle:categoria:index.html.twig")
      */
     public function categoryAction($slug) {
 
@@ -36,5 +39,19 @@ class DefaultController extends Controller
         $prod = $repoProd->findBy(array('category' => $id));
         
         return array('pr' => $prod);
+    }
+
+    /**
+     * @Route("/{slug}", name="producto")
+     * @Template("AppBundle:producto:index.html.twig")
+     */
+    public function productAction($slug) {
+
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+        $item = $repository->findOneBy(array('slug' => $slug));
+
+        $rel = $repository->findAll();
+        
+        return array('item' => $item , 'rel' => $rel);
     }
 }

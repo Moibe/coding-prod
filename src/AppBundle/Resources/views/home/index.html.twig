@@ -95,134 +95,33 @@
 <div class="featured_products"><div class="featured_products_wrap_inner">
 <div class="row ">
 <div class="span12 "><h2>{% trans %}Productos Destacados{% endtrans %}</h2>
+    {# INICIO DE SLIDE DE PRODUCTOS #}
 <div class="woocommerce">
-<div class="cherry_wc_product_carousel " data-params='{"items":4, "itemsDesktop":[1199,4], "itemsDesktopSmall":[979,3], "itemsTablet":[768,2], "itemsMobile":[479,1], "navigation":true, "navigationText":["",""], "pagination":false}'><ul class="products owl-carousel">
-<li class="first post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap"><img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/MSI-GTX-980Ti-GAMING-6G-NVIDIA-GeForce-PCI-Express-3-300x300.png" class="attachment-shop_catalog wp-post-image" alt="MSI-GTX-980Ti-GAMING-6G---NVIDIA-GeForce-PCI-Express-3"/></div><h3>MSI GTX 980Ti... </h3>
-<div class="star-rating" title="Rated 4.33 out of 5"><span style="width:86.6%"><strong class="rating">4.33</strong> out of 5</span></div>
-<span class="price"><span class="amount">&#36;95.00</span></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1958" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1958&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1958">Compare</a>
+<div class="cherry_wc_product_carousel " data-params='{"items":4, "itemsDesktop":[1199,4], "itemsDesktopSmall":[979,3], "itemsTablet":[768,2], "itemsMobile":[479,1], "navigation":true, "navigationText":["",""], "pagination":false}'>
 
-<div class="clear"></div></div>
-</li>
-<li class="post-1954 product type-product status-publish has-post-thumbnail product_cat-hard-drives product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics sale shipping-taxable purchasable product-type-simple product-cat-hard-drives product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap">
-<span class="onsale">Sale!</span>
-<img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/WD-Black-1TB-Performance-Desktop-Hard-Drive-5-300x300.png" class="attachment-shop_catalog wp-post-image" alt="WD-Black-1TB-Performance-Desktop-Hard-Drive-5"/></div><h3>WD Black 1TB... </h3>
-<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
-<span class="price"><del><span class="amount">&#36;75.00</span></del> <ins><span class="amount">&#36;70.00</span></ins></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1954" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1954&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1954">Compare</a>
+    <ul class="products owl-carousel">
+{% for item in prod %}
+    <li class="first post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
 
-<div class="clear"></div></div>
-</li>
-<li class="post-1950 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap"><img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/Asus-MAXIMUS-VII-HERO_05-300x300.png" class="attachment-shop_catalog wp-post-image" alt="Asus-MAXIMUS-VII-HERO_05"/></div><h3>Asus MAXIMUS VII... </h3>
-<div class="star-rating" title="Rated 4.33 out of 5"><span style="width:86.6%"><strong class="rating">4.33</strong> out of 5</span></div>
-<span class="price"><span class="amount">&#36;100.00</span></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1950" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1950&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1950">Compare</a>
+        <a href="{{path('producto',{'slug':item.slug})}}">
+        <div class="cherry-thumb-wrap">
+            <div style="background-image: url({{item.image|vlabs_media('default')}});width: 300px; height: 300px; background-repeat: no-repeat; background-size: contain; background-position: center center;">
+            </div>
+        </div>
+        <h3>{{item.name}}</h3>
 
-<div class="clear"></div></div>
-</li>
-<li class="last post-1946 product type-product status-publish has-post-thumbnail product_cat-hard-drives product_cat-software product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-hard-drives product-cat-software product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap"><img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/EVGA-GeForce-GTX-TITAN-X-Hydro-Copper-12-GB-GDDR5-384bit-PCI-Express-04-300x300.png" class="attachment-shop_catalog wp-post-image" alt="EVGA-GeForce-GTX-TITAN-X-Hydro-Copper-12-GB-GDDR5,-384bit,-PCI-Express-04"/></div><h3>EVGA GeForce GTX... </h3>
-<div class="star-rating" title="Rated 4.33 out of 5"><span style="width:86.6%"><strong class="rating">4.33</strong> out of 5</span></div>
-<span class="price"><span class="amount">&#36;120.00</span></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1946" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1946&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1946">Compare</a>
+        <span class="price"><span class="amount">&#36;{{item.price}}</span></span>
 
-<div class="clear"></div></div>
-</li>
-<li class="first post-1942 product type-product status-publish has-post-thumbnail product_cat-cpus product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics sale shipping-taxable purchasable product-type-simple product-cat-cpus product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap">
-<span class="onsale">Sale!</span>
-<img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/ARCTIC-Freezer-7-Pro-Rev-2-150-Watt-Multicompatible-Low-Noise-CPU-Cooler-for-AMD-and-Intel-Sockets_04-300x300.png" class="attachment-shop_catalog wp-post-image" alt="ARCTIC-Freezer-7-Pro-Rev-2---150-Watt-Multicompatible-Low-Noise-CPU-Cooler-for-AMD-and-Intel-Sockets_04"/></div><h3>ARCTIC Freezer 7... </h3>
-<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
-<span class="price"><del><span class="amount">&#36;94.50</span></del> <ins><span class="amount">&#36;80.00</span></ins></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1942" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1942&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1942">Compare</a>
+        </a>
+        <a href="" rel="nofollow" data-product_id="1958" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons">
 
-<div class="clear"></div></div>
-</li>
-<li class="post-1938 product type-product status-publish has-post-thumbnail product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap"><img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/Corsair-Hydro-Series-Extreme-Performance-Liquid-CPU-Cooler-H100i_04-300x300.png" class="attachment-shop_catalog wp-post-image" alt="Corsair-Hydro-Series-Extreme-Performance-Liquid-CPU-Cooler-H100i_04"/></div><h3>Corsair Hydro Series... </h3>
-<div class="star-rating" title="Rated 4.67 out of 5"><span style="width:93.4%"><strong class="rating">4.67</strong> out of 5</span></div>
-<span class="price"><span class="amount">&#36;104.00</span></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1938" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1938&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1938">Compare</a>
+        <div class="clear"></div></div>
+    </li>
+{% endfor %}
 
-<div class="clear"></div></div>
-</li>
-<li class="post-1934 product type-product status-publish has-post-thumbnail product_cat-software product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-software product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap"><img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/Crucial-BX100-250GB-SATA-3-300x300.png" class="attachment-shop_catalog wp-post-image" alt="Crucial-BX100-250GB-SATA-3"/></div><h3>Crucial BX100 250GB... </h3>
-<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
-<span class="price"><span class="amount">&#36;85.00</span></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1934" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1934&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1934">Compare</a>
 
-<div class="clear"></div></div>
-</li>
-<li class="last post-1930 product type-product status-publish has-post-thumbnail product_cat-cpus product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap"><img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/EVGA-GeForce-GTX-980-Ti-SC-ACX-4-300x300.png" class="attachment-shop_catalog wp-post-image" alt="EVGA-GeForce-GTX-980-Ti-SC-ACX-4"/></div><h3>EVGA GeForce GTX-980... </h3>
-<div class="star-rating" title="Rated 4.67 out of 5"><span style="width:93.4%"><strong class="rating">4.67</strong> out of 5</span></div>
-<span class="price"><span class="amount">&#36;99.50</span></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1930" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1930&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1930">Compare</a>
+    {# FIN CARRUSEL ITEMS #}
 
-<div class="clear"></div></div>
-</li>
-<li class="first post-1926 product type-product status-publish has-post-thumbnail product_cat-cddvd-drives product_cat-hard-drives product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics sale shipping-taxable purchasable product-type-simple product-cat-cddvd-drives product-cat-hard-drives product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap">
-<span class="onsale">Sale!</span>
-<img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/Samsung-850-EVO-500GB-4-300x300.png" class="attachment-shop_catalog wp-post-image" alt="Samsung-850-EVO-500GB-4"/></div><h3>Samsung 850 EVO... </h3>
-<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
-<span class="price"><del><span class="amount">&#36;114.00</span></del> <ins><span class="amount">&#36;100.00</span></ins></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1926" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1926&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1926">Compare</a>
-
-<div class="clear"></div></div>
-</li>
-<li class="post-1924 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap"><img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/VisionTek-Radeon-R9-390-8GB-GDDR5-PCI-Express-Graphics-Card_01-300x300.png" class="attachment-shop_catalog wp-post-image" alt="VisionTek-Radeon-R9-390-8GB-GDDR5-PCI-Express-Graphics-Card_01"/></div><h3>VisionTek Radeon R9... </h3>
-<div class="star-rating" title="Rated 3.67 out of 5"><span style="width:73.4%"><strong class="rating">3.67</strong> out of 5</span></div>
-<span class="price"><span class="amount">&#36;68.00</span></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1924" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1924&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1924">Compare</a>
-
-<div class="clear"></div></div>
-</li>
-<li class="post-1923 product type-product status-publish has-post-thumbnail product_cat-hard-drives product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-variable product-cat-hard-drives product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap"><img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/Kingston-Digital-120GB-SSDNow-V300-SATA-3-2-300x300.png" class="attachment-shop_catalog wp-post-image" alt="Kingston-Digital-120GB-SSDNow-V300-SATA-3-2"/></div><h3>Kingston Digital 120GB... </h3>
-<div class="star-rating" title="Rated 4.33 out of 5"><span style="width:86.6%"><strong class="rating">4.33</strong> out of 5</span></div>
-<span class="price"><span class="amount">&#36;71.00</span>&ndash;<span class="amount">&#36;93.00</span></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1923" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_variable">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1923&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1923">Compare</a>
-
-<div class="clear"></div></div>
-</li>
-<li class="last post-1922 product type-product status-publish has-post-thumbnail product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-variable product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-<a href="#">
-<div class="cherry-thumb-wrap"><img width="300" height="300" src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/10/Gigabyte-LGA-2011-3-X99-4-Memory-DIMMs-4-Way-SLI-Support-ATX-DDR3-2133-Motherboard-GA-X99-UD3P_05-300x300.png" class="attachment-shop_catalog wp-post-image" alt="Gigabyte-LGA-2011-3-X99-4-Memory-DIMMs-4-Way-SLI-Support-ATX-DDR3-2133-Motherboard-GA-X99-UD3P_05"/></div><h3>Gigabyte LGA 2011... </h3>
-<div class="star-rating" title="Rated 4.33 out of 5"><span style="width:86.6%"><strong class="rating">4.33</strong> out of 5</span></div>
-<span class="price"><span class="amount">&#36;36.00</span>&ndash;<span class="amount">&#36;94.00</span></span>
-</a>
-<a href="#" rel="nofollow" data-product_id="1922" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_variable">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons"><a href="/woocommerce_57763/?action=yith-woocompare-add-product&amp;id=1922&amp;_wpnonce=fbb00d327d" class="compare" data-product_id="1922">Compare</a>
-
-<div class="clear"></div></div>
-</li>
 </ul></div>
 </div></div>
 </div> 
