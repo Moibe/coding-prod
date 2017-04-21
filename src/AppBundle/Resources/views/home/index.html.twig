@@ -68,12 +68,10 @@
 <div class="row ">
 
 {% for category in cat %}
-    {# <h1>{{category.name}}</h1>
-    <h2><img src="{{category.cover|vlabs_media('default')}}"></h2> #}
 
 <div class="span3 ">
     <section class="lazy-load-box " data-delay="200" data-speed="800" style="-webkit-transition: all 800ms ease; -moz-transition: all 800ms ease; -ms-transition: all 800ms ease; -o-transition: all 800ms ease; transition: all 800ms ease;">
-        <a href="{{path('categoria',{'slug':category.slug})}}" title="{{category.name}}" class="banner-wrap ">
+        <a href="#" title="{{category.name}}" class="banner-wrap ">
             <figure class="featured-thumbnail">
                 <img src="{{category.cover|vlabs_media('default')}}" title="{{category.name}}" alt=""/>
             </figure>
@@ -113,7 +111,7 @@
         <span class="price"><span class="amount">&#36;{{item.price}}</span></span>
 
         </a>
-        <a href="" rel="nofollow" data-product_id="1958" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons">
+        <a href="{{path('producto',{'slug':item.slug})}}" rel="nofollow" data-product_id="1958" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a><div class="product-list-buttons">
 
         <div class="clear"></div></div>
     </li>

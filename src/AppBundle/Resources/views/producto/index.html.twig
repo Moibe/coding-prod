@@ -123,12 +123,12 @@
     <div class="woocommerce-tabs wc-tabs-wrapper">
         <ul class="tabs wc-tabs">
                 <li class="description_tab">
-                    <a href="#tab-description">Descripción</a>
+                    <a href="#tab-description">{% trans %}Descripción{% endtrans %}</a>
                 </li>
                     </ul>
                     <div class="panel entry-content wc-tab" id="tab-description">
                 
-  <h2>Descripción del producto:</h2>
+  <h2>{% trans %}Descripción del producto:{% endtrans %}</h2>
 
 <p>{{item.description}}</p>
             </div>
@@ -140,27 +140,26 @@
         <ul class="products">
             
 {% set numRel = 0 %}
-{% for prel in rel %}
-
-    {% if prel.slug != item.slug and numRel < 4 %}
+{% for i in 0..3 %}
+    {# {% if prel.slug != item.slug and numRel < 4 %} #}
 
         <li class="post-1930 product type-product status-publish has-post-thumbnail product_cat-cpus product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
 
             
-            <a href="{{path('producto',{'slug':prel.slug})}}">
+            <a href="{{path('producto',{'slug':rel[total[i]].slug})}}">
 
                 <div class="cherry-thumb-wrap">
-                    <div style="background-image: url({{prel.image|vlabs_media('default')}});width: 300px; height: 300px; background-repeat: no-repeat; background-size: contain; background-position: center center;">
+                    <div style="background-image: url({{rel[total[i]].image|vlabs_media('default')}});width: 300px; height: 300px; background-repeat: no-repeat; background-size: contain; background-position: center center;">
                     </div>
                 </div>
-                <h3>{{prel.name}}</h3>
+                <h3>{{rel[total[i]].name}}</h3>
 
-            <span class="price"><span class="amount">&#36;{{prel.price}}</span></span>
+            <span class="price"><span class="amount">&#36;{{rel[total[i]].price}}</span></span>
 
             </a>
         </li>
         {% set numRel = numRel + 1 %}
-    {% endif %}
+    {# {% endif %} #}
 
 {% endfor %}
                 
