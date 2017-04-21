@@ -23,7 +23,7 @@ class DefaultController extends Controller
 
     /**
      * @Route("/categoria/{slug}", name="categoria")
-     * @Template("AppBundle:categoria:index.html.twig")
+     * @Template("AppBundle:categoria:new.html.twig")
      */
     public function categoryAction($slug) {
 
