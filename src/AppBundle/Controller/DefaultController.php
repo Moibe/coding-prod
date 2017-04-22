@@ -51,21 +51,7 @@ class DefaultController extends Controller
         $item = $repository->findOneBy(array('slug' => $slug));
 
         $rel = $repository->findAll();
-
-        $max= count($rel);
-        $max= $max - 1;
-        $valores = array();
-
-        $x = 0;
-
-        while ($x<4) {
-          $num_aleatorio = rand(0,$max);
-          if (!in_array($num_aleatorio,$valores)) {
-            array_push($valores,$num_aleatorio);
-            $x++;
-          }
-        }
         
-        return array('item' => $item , 'rel' => $rel, 'total' => $valores);
+        return array('item' => $item , 'rel' => $rel);
     }
 }
