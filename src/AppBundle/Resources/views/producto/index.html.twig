@@ -153,7 +153,7 @@
 
             <span class="price"><span class="amount">&#36;{{prel.price}}</span></span>
 
-            <form action="/app_dev.php/checkout" method="POST">
+            <form action="/checkout" method="POST">
                 <input type="hidden" name="idd" value="{{prel.id}}">
                 <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
             </form>
