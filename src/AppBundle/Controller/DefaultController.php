@@ -42,16 +42,20 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/{slug}", name="producto")
+     * @Route("/checkout", name="producto")
      * @Template("AppBundle:producto:index.html.twig")
      */
-    public function productAction($slug) {
+    public function productAction(Request $request) {
 
-        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
-        $item = $repository->findOneBy(array('slug' => $slug));
+        if ($request->isMethod('post')) {
+            $id = $request->get('idd');
+
+            $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+        $item = $repository->findOneBy(array('id' => $id));
 
         $rel = $repository->findAll();
         
         return array('item' => $item , 'rel' => $rel);
+        }
     }
 }
