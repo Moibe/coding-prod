@@ -12,6 +12,8 @@ class AdminController extends BaseAdminController {
             $form->remove('slug');
             $form->remove('image');
             $form->add('image', 'vlabs_file', array('required' => false));
+            $form->remove('archivo');
+            $form->add('archivo', 'vlabs_file', array('required' => false));
         }
 
         if ($this->entity['name'] === 'Category') {

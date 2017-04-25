@@ -113,7 +113,7 @@
         {# </a> #}
         {# <a href="{{path('producto',{'slug':item.slug})}}" rel="nofollow" data-product_id="1958" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a> #}<div class="product-list-buttons" style="width: 100%;">
 
-        <form action="/checkout" method="POST">
+        <form action="/app_dev.php/checkout" method="POST">
             <input type="hidden" name="idd" value="{{item.id}}">
             <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
         </form>

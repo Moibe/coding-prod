@@ -18,7 +18,6 @@ class Image extends VlabsFile {
      * @var string $path
      *
      * @ORM\Column(name="path", type="string", length=255)
-     * @Assert\Image()
      */
     private $path;
 

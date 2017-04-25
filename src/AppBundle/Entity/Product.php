@@ -65,6 +65,19 @@ class Product
     private $image;
 
     /**
+     * @var VlabsFile
+     *
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"}, orphanRemoval=true))
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="archivo", referencedColumnName="id")
+     * })
+     * 
+     * @Vlabs\Media(identifier="image_entity", upload_dir="files/images")
+     * @Assert\Valid()
+     */
+    private $archivo;
+
+    /**
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=255, unique=true,nullable=true)
      */
@@ -226,5 +239,29 @@ class Product
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set archivo
+     *
+     * @param \AppBundle\Entity\Image $archivo
+     *
+     * @return Product
+     */
+    public function setArchivo(\AppBundle\Entity\Image $archivo = null)
+    {
+        $this->archivo = $archivo;
+
+        return $this;
+    }
+
+    /**
+     * Get archivo
+     *
+     * @return \AppBundle\Entity\Image
+     */
+    public function getArchivo()
+    {
+        return $this->archivo;
     }
 }

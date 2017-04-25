@@ -48,14 +48,35 @@ class DefaultController extends Controller
     public function productAction(Request $request) {
 
         if ($request->isMethod('post')) {
-            $id = $request->get('idd');
 
-            $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+        $id = $request->get('idd');
+
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
         $item = $repository->findOneBy(array('id' => $id));
+
+        $session = $this->get('session');
+        $session->set('item', $id);
 
         $rel = $repository->findAll();
         
         return array('item' => $item , 'rel' => $rel);
         }
+    }
+
+    /**
+     * @Route("/success", name="ok")
+     * @Template("AppBundle:success:index.html.twig")
+     */
+    public function successAction()
+    {
+
+        $session = $this->get('session');
+        $id = $session->get('item');
+
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+        $result = $repository->findOneBy(array('id' => $id));
+
+
+        return array('item' => $result);
     }
 }

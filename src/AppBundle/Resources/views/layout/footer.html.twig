@@ -18,7 +18,10 @@
 <div class="span4">
 <div class="footer-logo">
 <a href="/">
-<img src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/images/footer_logo.png" alt="">
+{# <img src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/images/footer_logo.png" alt=""> #}
+{% image '@AppBundle/Resources/public/img/logo-footer.png' %}
+    <img src="{{ asset_url }}" alt="" class='img-responsive' />
+{% endimage %}
 </a>
 </div> <div id="text-2" class="visible-all-devices footer-contacts"> <div class="textwidget">
 <a class="email" href="/cdn-cgi/l/email-protection#355c5b535a755150585a595c5b5e1b5a4752"><span class="__cf_email__" data-cfemail="c2abaca4ad82a6a7afadaeabaca9ecadb0a5">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a>
@@ -28,11 +31,12 @@
 {# <div class="social-nets-wrapper">
 </div> #}
 <nav class="nav footer-nav">
-<ul id="menu-footer-menu" class="menu"><li id="menu-item-2253" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item menu-item-2253"><a href="#">{% trans %}Inicio{% endtrans %}</a></li>
+<ul id="menu-footer-menu" class="menu">
+{# <li id="menu-item-2253" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item menu-item-2253"><a href="#">{% trans %}Inicio{% endtrans %}</a></li>
 <li id="menu-item-2257" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2257"><a href="#">{% trans %}Acerca{% endtrans %}</a></li>
 <li id="menu-item-2271" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2271"><a href="#">{% trans %}Tienda{% endtrans %}</a></li>
 <li id="menu-item-2256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2256"><a href="#">{% trans %}Portafolio{% endtrans %}</a></li>
-<li id="menu-item-2255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2255"><a href="#">{% trans %}Contáctanos{% endtrans %}</a></li>
+<li id="menu-item-2255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2255"><a href="#">{% trans %}Contáctanos{% endtrans %}</a></li> #}
 </ul> </nav>
 </div>
 </div>
