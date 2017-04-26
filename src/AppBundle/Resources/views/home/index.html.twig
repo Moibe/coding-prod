@@ -14,6 +14,10 @@
     line-height: 40px;
 }
 
+.parallax-slider #mainCaptionHolder .container{
+    top: 25% !important;
+}
+
 .parallax-slider .parallaxPrevBtn .icon-angle-left::before{
     content: '<';
     font-family: inherit;
@@ -38,19 +42,33 @@
 
 </style>
 
-<div id="parallax-slider-58e771280f371" class="parallax-slider"><ul class="baseList"><li data-preview="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_01.png" data-thumb-url="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_01-100x50.png" data-ulr-link=""><div class="slider_caption"><h2>Mac</h2>
+<div id="parallax-slider-58e771280f371" class="parallax-slider">
+    <ul class="baseList">
+        {% image '@AppBundle/Resources/public/img/s1.jpg' %}
+        <img src="{{ asset_url }}" alt="" class='img-responsive' />
+        <li data-preview="{{ asset_url }}" data-thumb-url="{{ asset_url }}" data-ulr-link="">
+        {% endimage %}
+        <div class="slider_caption"><h2>Mac</h2>
 <div class="subtitle-wrapper">
 <h3>{% trans %}Rendimiento y diseño{% endtrans %}</h3>
 </div>
-<a href="#" class="slider-button">{% trans %}Compra ahora!{% endtrans %}</a></div></li><li data-preview="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_02.png" data-thumb-url="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_02-100x50.png" data-ulr-link=""><div class="slider_caption"><h2>Mac Mini</h2>
+<a href="#" class="slider-button">{% trans %}Compra ahora!{% endtrans %}</a></div></li>
+
+{% image '@AppBundle/Resources/public/img/s2.jpg' %}
+    <img src="{{ asset_url }}" alt="" class='img-responsive' />
+        <li data-preview="{{ asset_url }}" data-thumb-url="{{ asset_url }}" data-ulr-link="">
+{% endimage %}
+
+<div class="slider_caption">
+<h2>Mac Mini</h2>
 <div class="subtitle-wrapper">
 <h3>{% trans %}Las Mac se diferencian de Windows porque corren sobre el sistema operativo propio de Apple{% endtrans %}</h3>
 </div>
-<a href="#" class="slider-button">{% trans %}Compra ahora!{% endtrans %}</a></div></li><li data-preview="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_03.png" data-thumb-url="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_03-100x50.png" data-ulr-link=""><div class="slider_caption"><h2>MacBook Air</h2>
-<div class="subtitle-wrapper">
-<h3>{% trans %}Nueva quinta generación de Intel{% endtrans %}</h3>
+<a href="#" class="slider-button">{% trans %}Compra ahora!{% endtrans %}</a></div></li>
+
+
+</ul>
 </div>
-<a href="#" class="slider-button">{% trans %}Compra ahora!{% endtrans %}</a></div></li></ul></div>
 <div class="motopress-wrapper content-holder clearfix">
 <div class="container">
 <div class="row">
