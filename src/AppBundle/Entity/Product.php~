@@ -271,28 +271,4 @@ class Product
     {
         return $this->archivo;
     }
-
-    /**
-     * Set featured
-     *
-     * @param boolean $featured
-     *
-     * @return Product
-     */
-    public function setFeatured($featured)
-    {
-        $this->featured = $featured;
-
-        return $this;
-    }
-
-    /**
-     * Get featured
-     *
-     * @return boolean
-     */
-    public function getFeatured()
-    {
-        return $this->featured;
-    }
 }

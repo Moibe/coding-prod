@@ -19,7 +19,7 @@ class DefaultController extends Controller
         $result = $repository->findAll();
 
         $repositoryp = $this->getDoctrine()->getRepository('AppBundle:Product');
-        $pr = $repositoryp->findAll();
+        $pr = $repositoryp->findBy(array('featured' => 1));
 
         return array('cat' => $result, 'prod' => $pr);
     }
