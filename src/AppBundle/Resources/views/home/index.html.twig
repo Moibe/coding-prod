@@ -133,9 +133,9 @@
             
                 <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 80%; background-position: center center;"></div>
             {% endimage %}
-            <div style="width: auto;position: absolute;top: 15%;right: 0;"><div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:70px;height:70px;background-size: contain;background-repeat: no-repeat;"></div></div>
         </div>
         <h3>{{item.name}}</h3>
+        <div style="width: 100%;"><div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:70px;height:70px;background-size: contain;background-repeat: no-repeat;"></div></div>
         <span class="price"><span class="amount">&#36;{{item.price}}</span></span>
 
         {# </a> #}
