@@ -6,22 +6,8 @@
         <title>{% block title %}Coding Depot{% endblock %}</title>
         {% block stylesheets %}
                {% stylesheets 
-                'bundles/app/template/css/responsive.css'
-                'bundles/app/template/css/camera.css'
-                'bundles/app/template/css/flexslider.css'
-                'bundles/app/template/css/owl.carousel.css'
-                'bundles/app/template/css/owl.theme.css'
-                'bundles/app/template/css/cherry-plugin.css'
-                'bundles/app/template/css/lazy-load.css'
-                'bundles/app/template/css/parallax.css'
-                'bundles/app/template/css/style.css'
-                'bundles/app/template/css/styles.css'
-                'bundles/app/template/css/woocommerce-layout.css'
-                'bundles/app/template/css/woocommerce.css'
-                'bundles/app/template/css/colorbox.css'
-                'bundles/app/template/css/prettyPhoto.css'
                 'bundles/app/bootstrap/css/bootstrap.css'
-                'bundles/app/css/mainc.css'
+                'bundles/app/css/mainc.css' 
                 %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
@@ -31,7 +17,12 @@
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}
-            
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        {% javascripts '@AppBundle/Resources/public/bootstrap/js/bootstrap.js'
+            '@AppBundle/Resources/public/bootstrap/js/bootstrap.min.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         {% endblock %}
     </body>
 </html>
