@@ -71,7 +71,13 @@
         <h1 class="text-center">¡Gracias por tu compra!</h1>
         {% if item.image != null %}
         <div class="col-md-6 col-md-offset-3 text-center">
-            <img src="{{item.image|vlabs_media('default')}}">
+            {% image '@AppBundle/Resources/public/img/prod-default.png' %}
+                <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 100%; background-position: center center;margin: auto;"></div>
+            {% endimage %}
+            <div style="width: auto;position: absolute;top: 0;left: 55%;">
+                <div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:100px;height:100px;background-size: contain;background-repeat: no-repeat;"></div>
+            </div>
+            <h1 class="text-center">{{item.name}}</h1>
         </div>
         {% endif %}
         <div class="clearfix"></div>
