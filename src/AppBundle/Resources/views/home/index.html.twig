@@ -133,13 +133,13 @@
             {% endimage %}
         </div>
         <h3>{{item.name}}</h3>
-        <div style="width: 100%;"><div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:70px;height:70px;background-size: contain;background-repeat: no-repeat;"></div></div>
+        <div style="width: auto;position: absolute;top: 15%;right: 0;"><div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:70px;height:70px;background-size: contain;background-repeat: no-repeat;"></div></div>
         <span class="price"><span class="amount">&#36;{{item.price}}</span></span>
 
         {# </a> #}
         {# <a href="{{path('producto',{'slug':item.slug})}}" rel="nofollow" data-product_id="1958" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a> #}<div class="product-list-buttons" style="width: 100%;">
 
-        <form action="/app_dev.php/checkout" method="POST">
+        <form action="/checkout" method="POST">
             <input type="hidden" name="idd" value="{{item.id}}">
             <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
         </form>

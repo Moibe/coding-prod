@@ -69,9 +69,11 @@
 
 
         <h1 class="text-center">¡Gracias por tu compra!</h1>
+        {% if item.image != null %}
         <div class="col-md-6 col-md-offset-3 text-center">
             <img src="{{item.image|vlabs_media('default')}}">
         </div>
+        {% endif %}
         <div class="clearfix"></div>
 
         {% if item.archivo != null %}
