@@ -90,12 +90,10 @@
 
                         {% if item.featured == false %}
                             <script type="text/javascript">
-                                $(document).ready(function () {
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
                                         location.href = "{{redirect_url|replace({'{language}':item.locale})}}";
                                     }, 5000);
-                                });
                             </script>
                         {% endif %}
                     </div>
