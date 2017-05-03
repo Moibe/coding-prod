@@ -6,60 +6,36 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
-class DefaultController extends Controller
-{
+class DefaultController extends Controller {
+
     /**
      * @Route("/", name="homepage")
      * @Template("AppBundle:home:index.html.twig")
      */
-    public function indexAction()
-    {
+    public function indexAction(Request $request) {
         $repository = $this->getDoctrine()->getRepository('AppBundle:Category');
         $result = $repository->findAll();
-
         $repositoryp = $this->getDoctrine()->getRepository('AppBundle:Product');
-        $pr = $repositoryp->findBy(array('featured' => 1));
-
+        $pr = $repositoryp->findBy(array('featured' => 1, 'locale' => $request->getLocale()));
         return array('cat' => $result, 'prod' => $pr);
     }
 
     /**
-     * @Route("/categoria/{slug}", name="categoria")
-     * @Template("AppBundle:categoria:index.html.twig")
-     */
-    public function categoryAction($slug) {
-
-        $repository = $this->getDoctrine()->getRepository('AppBundle:Category');
-        $cat = $repository->findOneBy(array('slug' => $slug));
-        $id= $this->getDoctrine()->getManager();
-        $id= $cat->getId();
-
-        $repoProd = $this->getDoctrine()->getRepository('AppBundle:Product');
-        $prod = $repoProd->findBy(array('category' => $id));
-        
-        return array('pr' => $prod);
-    }
-
-    /**
      * @Route("/checkout", name="producto")
+     * @Method({"POST"})
      * @Template("AppBundle:producto:index.html.twig")
      */
     public function productAction(Request $request) {
-
         if ($request->isMethod('post')) {
-
-        $id = $request->get('idd');
-
-        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
-        $item = $repository->findOneBy(array('id' => $id));
-
-        $session = $this->get('session');
-        $session->set('item', $id);
-
-        $rel = $repository->findAll();
-        
-        return array('item' => $item , 'rel' => $rel);
+            $id = $request->get('idd');
+            $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+            $item = $repository->findOneBy(array('id' => $id));
+            $session = $this->get('session');
+            $session->set('item', $id);
+            $rel = $repository->findOthers($item);
+            return array('item' => $item, 'rel' => $rel);
         }
     }
 
@@ -67,8 +43,7 @@ class DefaultController extends Controller
      * @Route("/success", name="ok")
      * @Template("AppBundle:success:index.html.twig")
      */
-    public function successAction()
-    {
+    public function successAction() {
 
         $session = $this->get('session');
         $id = $session->get('item');
@@ -79,4 +54,5 @@ class DefaultController extends Controller
 
         return array('item' => $result);
     }
+
 }

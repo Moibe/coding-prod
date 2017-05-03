@@ -72,19 +72,6 @@ class Product {
      *
      * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"}, orphanRemoval=true))
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="image", referencedColumnName="id")
-     * })
-     * 
-     * @Vlabs\Media(identifier="image_entity", upload_dir="files/images")
-     * @Assert\Valid()
-     */
-    private $image;
-
-    /**
-     * @var VlabsFile
-     *
-     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"}, orphanRemoval=true))
-     * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="archivo", referencedColumnName="id")
      * })
      * 
@@ -106,12 +93,15 @@ class Product {
      */
     private $featured;
 
+   
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -122,7 +112,8 @@ class Product {
      *
      * @return Product
      */
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
 
         return $this;
@@ -133,7 +124,8 @@ class Product {
      *
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
@@ -144,7 +136,8 @@ class Product {
      *
      * @return Product
      */
-    public function setPrice($price) {
+    public function setPrice($price)
+    {
         $this->price = $price;
 
         return $this;
@@ -153,146 +146,11 @@ class Product {
     /**
      * Get price
      *
-     * @return int
+     * @return integer
      */
-    public function getPrice() {
+    public function getPrice()
+    {
         return $this->price;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Product
-     */
-    public function setDescription($description) {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription() {
-        return $this->description;
-    }
-
-    /**
-     * Set image
-     *
-     * @param \AppBundle\Entity\Image $image
-     *
-     * @return Product
-     */
-    public function setImage(\AppBundle\Entity\Image $image = null) {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return \AppBundle\Entity\Image
-     */
-    public function getImage() {
-        return $this->image;
-    }
-
-    /**
-     * Set category
-     *
-     * @param \AppBundle\Entity\Category $category
-     *
-     * @return Product
-     */
-    public function setCategory(\AppBundle\Entity\Category $category = null) {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \AppBundle\Entity\Category
-     */
-    public function getCategory() {
-        return $this->category;
-    }
-
-    public function __toString() {
-        return $this->getName();
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Product
-     */
-    public function setSlug($slug) {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug() {
-        return $this->slug;
-    }
-
-    /**
-     * Set archivo
-     *
-     * @param \AppBundle\Entity\Image $archivo
-     *
-     * @return Product
-     */
-    public function setArchivo(\AppBundle\Entity\Image $archivo = null) {
-        $this->archivo = $archivo;
-
-        return $this;
-    }
-
-    /**
-     * Get archivo
-     *
-     * @return \AppBundle\Entity\Image
-     */
-    public function getArchivo() {
-        return $this->archivo;
-    }
-
-    /**
-     * Set featured
-     *
-     * @param boolean $featured
-     *
-     * @return Product
-     */
-    public function setFeatured($featured) {
-        $this->featured = $featured;
-
-        return $this;
-    }
-
-    /**
-     * Get featured
-     *
-     * @return boolean
-     */
-    public function getFeatured() {
-        return $this->featured;
     }
 
     /**
@@ -302,7 +160,8 @@ class Product {
      *
      * @return Product
      */
-    public function setLocale($locale) {
+    public function setLocale($locale)
+    {
         $this->locale = $locale;
 
         return $this;
@@ -313,10 +172,106 @@ class Product {
      *
      * @return string
      */
-    public function getLocale() {
+    public function getLocale()
+    {
         return $this->locale;
     }
 
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Product
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Product
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set featured
+     *
+     * @param boolean $featured
+     *
+     * @return Product
+     */
+    public function setFeatured($featured)
+    {
+        $this->featured = $featured;
+
+        return $this;
+    }
+
+    /**
+     * Get featured
+     *
+     * @return boolean
+     */
+    public function getFeatured()
+    {
+        return $this->featured;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Product
+     */
+    public function setCategory(\AppBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 
     /**
      * Set currency
@@ -340,5 +295,33 @@ class Product {
     public function getCurrency()
     {
         return $this->currency;
+    }
+
+    /**
+     * Set archivo
+     *
+     * @param \AppBundle\Entity\Image $archivo
+     *
+     * @return Product
+     */
+    public function setArchivo(\AppBundle\Entity\Image $archivo = null)
+    {
+        $this->archivo = $archivo;
+
+        return $this;
+    }
+
+    /**
+     * Get archivo
+     *
+     * @return \AppBundle\Entity\Image
+     */
+    public function getArchivo()
+    {
+        return $this->archivo;
+    }
+    
+    public function getPriceFormated(){
+        return $this->getCurrency() ? $this->getCurrency()->getSymbol().' ' . $this->getPrice() . ' ' . $this->getCurrency()->getCode() : $this->getPrice();
     }
 }

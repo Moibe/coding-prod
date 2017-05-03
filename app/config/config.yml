@@ -59,6 +59,9 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        dql:
+            numeric_functions:
+                Rand: AppBundle\DQL\RandFunction
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -87,4 +90,7 @@ vlabs_media:
         image_entity:
           class: AppBundle\Entity\Image
           
-      
+jms_i18n_routing:
+    default_locale: es
+    locales: [es,de,en,fr,it,nl,pt,eu,asia,in,uk,ar]
+    strategy: prefix      

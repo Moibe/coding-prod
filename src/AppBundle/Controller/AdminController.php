@@ -10,8 +10,6 @@ class AdminController extends BaseAdminController {
         $form = parent::createEntityForm($entity, $entityProperties, $view);
         if ($this->entity['name'] === 'Product') {
             $form->remove('slug');
-            $form->remove('image');
-            $form->add('image', 'vlabs_file', array('required' => false));
             $form->remove('archivo');
             $form->add('archivo', 'vlabs_file', array('required' => false));
         }
