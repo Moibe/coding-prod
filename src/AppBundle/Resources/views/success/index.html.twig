@@ -2,96 +2,107 @@
 
 {% block body %}
 
-{% include 'AppBundle:layout:header.html.twig' %}
+    {% include 'AppBundle:layout:header.html.twig' %}
 
-<div id="parallax-slider-58e771280f371" class="parallax-slider"><ul class="baseList"><li data-preview="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_01.png" data-thumb-url="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_01-100x50.png" data-ulr-link=""></div>
+    <div id="parallax-slider-58e771280f371" class="parallax-slider"><ul class="baseList"><li data-preview="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_01.png" data-thumb-url="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_01-100x50.png" data-ulr-link=""></div>
 
-    {# INICIO DEL BODY #}
-
-
-        <script src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/CherryFramework/js/jquery.mobile.customized.min.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            jQuery(function(){
-                jQuery('.sf-menu').mobileMenu({defaultText: "Navigate to..."});
-            });
-        </script>
-    <!--<![endif]-->
-    <script type="text/javascript">
-        // Init navigation menu
-        jQuery(function(){
-        // main navigation init
-            jQuery('ul.sf-menu').superfish({
-                delay: 1000, // the delay in milliseconds that the mouse can remain outside a sub-menu without it closing
-                animation: {
-                    opacity: "show",
-                    height: "show"
-                }, // used to animate the sub-menu open
-                speed: "normal", // animation speed
-                autoArrows: false, // generation of arrow mark-up (for submenu)
-                disableHI: true // to disable hoverIntent detection
-            });
-
-        //Zoom fix
-        //IPad/IPhone
-            var viewportmeta = document.querySelector && document.querySelector('meta[name="viewport"]'),
-                ua = navigator.userAgent,
-                gestureStart = function () {
-                    viewportmeta.content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6, initial-scale=1.0";
-                },
-                scaleFix = function () {
-                    if (viewportmeta && /iPhone|iPad/.test(ua) && !/Opera Mini/.test(ua)) {
-                        viewportmeta.content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
-                        document.addEventListener("gesturestart", gestureStart, false);
-                    }
-                };
-            scaleFix();
-        })
-    </script>
-    <!-- stick up menu -->
-    <script type="text/javascript">
-        jQuery(document).ready(function(){
-            if(!device.mobile() && !device.tablet()){
-                jQuery('.header .header-content').tmStickUp({
-                    correctionSelector: jQuery('#wpadminbar')
-                ,   listenSelector: jQuery('.listenSelector')
-                ,   active: false               ,   pseudo: true                });
-            }
-        })
-    </script>
-</head>
-
-<body class="single single-product postid-1958 woocommerce woocommerce-page has_woocommerce has_shop olrk-live-chat">
-    <div id="motopress-main" class="main-holder">
-        <!--Begin #motopress-main-->
-        
-    <div class="motopress-wrapper content-holder clearfix woocommerce">
-    <div class="container">
+                {# INICIO DEL BODY #}
 
 
-        <h1 class="text-center">¡Gracias por tu compra!</h1>
-        {% if item.image != null %}{% endif %}
-        <div class="col-md-6 col-md-offset-3 text-center">
-            {% image '@AppBundle/Resources/public/img/prod-default.png' %}
-                <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 100%; background-position: center center;margin: auto;"></div>
-            {% endimage %}
-            <div style="width: auto;position: absolute;top: 0;left: 55%;">
-                <div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:100px;height:100px;background-size: contain;background-repeat: no-repeat;"></div>
-            </div>
-            <h1 class="text-center">{{item.name}}</h1>
-        </div>
-        <div class="clearfix"></div>
+                <script src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/CherryFramework/js/jquery.mobile.customized.min.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                    jQuery(function () {
+                        jQuery('.sf-menu').mobileMenu({defaultText: "Navigate to..."});
+                    });
+                </script>
+                <!--<![endif]-->
+                <script type="text/javascript">
+                    // Init navigation menu
+                    jQuery(function () {
+                        // main navigation init
+                        jQuery('ul.sf-menu').superfish({
+                            delay: 1000, // the delay in milliseconds that the mouse can remain outside a sub-menu without it closing
+                            animation: {
+                                opacity: "show",
+                                height: "show"
+                            }, // used to animate the sub-menu open
+                            speed: "normal", // animation speed
+                            autoArrows: false, // generation of arrow mark-up (for submenu)
+                            disableHI: true // to disable hoverIntent detection
+                        });
 
-        {% if item.archivo != null %}
-            <div class="col-md-12 text-center" style="margin-bottom: 5%;">
-                <p class="tex-center">Aquí podrás descargar más información del producto:</p>
-                <a href="{{item.archivo|vlabs_media('default')}}" download=""><button>DESCARGA ZIP</button></a>
-            </div>
-        {% endif %}
-</div>
+                        //Zoom fix
+                        //IPad/IPhone
+                        var viewportmeta = document.querySelector && document.querySelector('meta[name="viewport"]'),
+                                ua = navigator.userAgent,
+                                gestureStart = function () {
+                                    viewportmeta.content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6, initial-scale=1.0";
+                                },
+                                scaleFix = function () {
+                                    if (viewportmeta && /iPhone|iPad/.test(ua) && !/Opera Mini/.test(ua)) {
+                                        viewportmeta.content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+                                        document.addEventListener("gesturestart", gestureStart, false);
+                                    }
+                                };
+                        scaleFix();
+                    })
+                </script>
+                <!-- stick up menu -->
+                <script type="text/javascript">
+                    jQuery(document).ready(function () {
+                        if (!device.mobile() && !device.tablet()) {
+                            jQuery('.header .header-content').tmStickUp({
+                                correctionSelector: jQuery('#wpadminbar')
+                                , listenSelector: jQuery('.listenSelector')
+                                , active: false, pseudo: true});
+                        }
+                    })
+                </script>
+                </head>
+
+            <body class="single single-product postid-1958 woocommerce woocommerce-page has_woocommerce has_shop olrk-live-chat">
+                <div id="motopress-main" class="main-holder">
+                    <!--Begin #motopress-main-->
+
+                    <div class="motopress-wrapper content-holder clearfix woocommerce">
+                        <div class="container">
 
 
-    {# FIN DEL BODY #}
+                            <h1 class="text-center">¡Gracias por tu compra!</h1>
+                        {% if item.image != null %}{% endif %}
+                        <div class="col-md-6 col-md-offset-3 text-center">
+                            {% image '@AppBundle/Resources/public/img/prod-default.png' %}
+                            <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 100%; background-position: center center;margin: auto;"></div>
+                            {% endimage %}
+                            <div style="width: auto;position: absolute;top: 0;left: 55%;">
+                                <div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:100px;height:100px;background-size: contain;background-repeat: no-repeat;"></div>
+                            </div>
+                            <h1 class="text-center">{{item.name}}</h1>
+                        </div>
+                        <div class="clearfix"></div>
 
-{% include 'AppBundle:layout:footer.html.twig' %}
+                        {% if item.archivo != null %}
+                            <div class="col-md-12 text-center" style="margin-bottom: 5%;">
+                                <p class="tex-center">Aquí podrás descargar más información del producto:</p>
+                                <a href="{{item.archivo|vlabs_media('default')}}" download=""><button>DESCARGA ZIP</button></a>
+                            </div>
+                        {% endif %}
 
-{% endblock %}
+                        {% if item.featured == false %}
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    // Handler for .ready() called.
+                                    window.setTimeout(function () {
+                                        location.href = "{{redirect_url|replace({'{language}':item.locale})}}";
+                                    }, 5000);
+                                });
+                            </script>
+                        {% endif %}
+                    </div>
+
+
+                    {# FIN DEL BODY #}
+
+                    {% include 'AppBundle:layout:footer.html.twig' %}
+
+                {% endblock %}

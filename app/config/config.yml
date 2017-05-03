@@ -36,7 +36,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-
+    globals:
+        redirect_url: "%redirect_url%"    
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -77,6 +78,7 @@ easy_admin:
     entities:
         - AppBundle\Entity\Product
         - AppBundle\Entity\Category
+        - AppBundle\Entity\Currency        
 
 vlabs_media:
     image_cache:
@@ -84,3 +86,5 @@ vlabs_media:
     mapping:
         image_entity:
           class: AppBundle\Entity\Image
+          
+      
