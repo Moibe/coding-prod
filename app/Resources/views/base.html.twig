@@ -5,12 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Coding Depot{% endblock %}</title>
         {% block stylesheets %}
+
+            {# {% stylesheets '@AppBundle/Resources/public/template/css/*' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %} #}
+
                {% stylesheets 
                 'bundles/app/bootstrap/css/bootstrap.css'
                 'bundles/app/css/mainc.css' 
                 %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
+
+            
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -22,6 +29,10 @@
             '@AppBundle/Resources/public/bootstrap/js/bootstrap.min.js'
         %}
         <script src="{{ asset_url }}"></script>
+        {% endjavascripts %} 
+        
+        {% javascripts '@AppBundle/Resources/public/template/js/footer/*' %}
+            <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
         {% endblock %}
     </body>

@@ -2,6 +2,10 @@
 
 {% include 'AppBundle:layout:header.html.twig' %}
 
+{# {% stylesheets '@AppBundle/Resources/public/template/css/*' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %} #}
+
 <style type="text/css">
 .parallax-slider{
     height: 900px !important;
@@ -164,6 +168,11 @@
 </div>
 </div>
 </div>
+
+    {# JS DEL TEMPLATE #}
+{% javascripts '@AppBundle/Resources/public/template/js/footer/*' %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
 
 {% include 'AppBundle:layout:footer.html.twig' %}
 

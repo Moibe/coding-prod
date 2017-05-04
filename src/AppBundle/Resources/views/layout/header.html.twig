@@ -1,45 +1,99 @@
 <head>
-<title>Coding Bucket</title>
+<title>Coding Depot</title>
 <meta name="description" content=""/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
-    header.header{
+/*    header.header{
         padding: 0 !important;
     }
 
     .logo{
         margin-top: 20px !important;
         margin-bottom: 20px !important;
-    }
+    }*/
 </style>
 
 <link rel="icon" href="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/favicon.ico" type="image/x-icon"/>
 
+    {# BOOTSTRAP QUITAR #}
 <link rel="stylesheet" type="text/css" media="all" href="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/bootstrap/css/bootstrap.css"/>
 
 {# SCRIPTS PARA AÑADIR AL BASE #}
-<script type='text/javascript' src='https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/CherryFramework/js/jquery-1.7.2.min.js?ver=1.7.2'></script>
-<script type='text/javascript' src='https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/CherryFramework/js/custom.js?ver=1.0'></script>
-<script type='text/javascript' src='https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/CherryFramework/bootstrap/js/bootstrap.min.js?ver=2.3.0'></script>
+
+{% javascripts '@AppBundle/Resources/public/template/js/jquery-1.7.2.min.js' %}
+    <script type='text/javascript' src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% javascripts '@AppBundle/Resources/public/template/js/custom.js' %}
+    <script type='text/javascript' src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+
+
+
+
+
+{# <script type='text/javascript' src='https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/CherryFramework/js/jquery-1.7.2.min.js?ver=1.7.2'></script> #}
+{# <script type='text/javascript' src='https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/CherryFramework/js/custom.js?ver=1.0'></script> #}
+
+{# BOOTSTRAP QUITAR #}
+{# <script type='text/javascript' src='https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/CherryFramework/bootstrap/js/bootstrap.min.js?ver=2.3.0'></script> #}
+
+
+    {% stylesheets 'bundles/app/template/css/responsive.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/owl.carousel.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/owl.theme.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/style.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/styles.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/woocommerce-layout.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/custom-home.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    <script src="https://use.fontawesome.com/a13f1be9d0.js"></script>
 
 
     {# ESTILOS PARA AGREGAR AL MAIN #}
-    <link rel="stylesheet" type="text/css" media="all" href="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/bootstrap/css/responsive.css"/>
-    <link rel='stylesheet' id='owl-carousel-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/plugins/cherry-plugin/lib/js/owl-carousel/owl.carousel.css?ver=1.24' type='text/css' media='all'/>
-    <link rel='stylesheet' id='owl-theme-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/plugins/cherry-plugin/lib/js/owl-carousel/owl.theme.css?ver=1.24' type='text/css' media='all'/>
-    <link rel='stylesheet' id='font-awesome-css' href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css?ver=3.2.1' type='text/css' media='all'/>
-    <link rel='stylesheet' id='cherry_woocommerce_style-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/plugins/cherry-woocommerce-package/assets/css/style.css?ver=1.2.0' type='text/css' media='all'/>
-<link rel='stylesheet' id='contact-form-7-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.3' type='text/css' media='all'/>
-<link rel='stylesheet' id='woocommerce-layout-css' href='//livedemo00.template-help.com/woocommerce_57763/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=2.4.10' type='text/css' media='all'/>
+    {# <link rel="stylesheet" type="text/css" media="all" href="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/bootstrap/css/responsive.css"/> #}
+    {# <link rel='stylesheet' id='owl-carousel-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/plugins/cherry-plugin/lib/js/owl-carousel/owl.carousel.css?ver=1.24' type='text/css' media='all'/> #}
+    {# <link rel='stylesheet' id='owl-theme-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/plugins/cherry-plugin/lib/js/owl-carousel/owl.theme.css?ver=1.24' type='text/css' media='all'/> #}
+    
+    {# <link rel='stylesheet' id='font-awesome-css' href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css?ver=3.2.1' type='text/css' media='all'/> #}
+
+
+
+
+    {# <link rel='stylesheet' id='cherry_woocommerce_style-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/plugins/cherry-woocommerce-package/assets/css/style.css?ver=1.2.0' type='text/css' media='all'/> #}
+{# <link rel='stylesheet' id='contact-form-7-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.3' type='text/css' media='all'/> #}
+{# <link rel='stylesheet' id='woocommerce-layout-css' href='//livedemo00.template-help.com/woocommerce_57763/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=2.4.10' type='text/css' media='all'/> #}
+    
     <link rel='stylesheet' id='theme57763-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/main-style.css' type='text/css' media='all'/>
+
     <link rel='stylesheet' id='options_typography_Montserrat-css' href='//fonts.googleapis.com/css?family=Montserrat&#038;subset=latin' type='text/css' media='all'/>
     <link rel='stylesheet' id='options_typography_Raleway:100-css' href='//fonts.googleapis.com/css?family=Raleway:100&#038;subset=latin' type='text/css' media='all'/>
 
-<style type='text/css'>.header{background-color:white}</style>
-<style type='text/css'>h1{font:normal 30px/35px Montserrat;color:#1f1f1f;}h2{font:normal 22px/22px Montserrat;color:#1f1f1f;}h3{font:normal 18px/18px Montserrat;color:#1f1f1f;}h4{font:normal 14px/18px Montserrat;color:#1f1f1f;}h5{font:normal 12px/18px Montserrat;color:#1f1f1f;}h6{font:normal 12px/18px Montserrat;color:#1f1f1f;}body{font-weight:normal;}.logo_h__txt,.logo_link{font:bold 30px/30px Montserrat;color:#1f1f1f;}.sf-menu>li>a{font:normal 16px/18px Montserrat;color:#1f1f1f;}.nav.footer-nav a{font:normal 16px/18px Montserrat;color:#ffffff;}</style>
 
 <script src="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/CherryFramework/js/jquery.mobile.customized.min.js" type="text/javascript"></script>
+
 <script type="text/javascript">
             jQuery(function(){
                 jQuery('.sf-menu').mobileMenu({defaultText: "Navigate to..."});
