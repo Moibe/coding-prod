@@ -1,0 +1,67 @@
+    <title>Coding Depot</title>
+    <meta name="description" content=""/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    
+    {# BOOTSTRAP QUITAR #}
+    <link rel="stylesheet" type="text/css" media="all" href="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/bootstrap/css/bootstrap.css"/>
+
+    {# SCRIPTS PARA AÑADIR AL BASE #}
+
+    {% javascripts '@AppBundle/Resources/public/template/js/jquery-1.7.2.min.js' %}
+        <script type='text/javascript' src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@AppBundle/Resources/public/template/js/custom.js' %}
+        <script type='text/javascript' src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts '@AppBundle/Resources/public/template/js/jquery.mobile.customized.min.js' %}
+        <script type='text/javascript' src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% stylesheets 'bundles/app/template/css/responsive.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/owl.carousel.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/owl.theme.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/style.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/styles.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/woocommerce-layout.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    <script src="https://use.fontawesome.com/a13f1be9d0.js"></script>
+
+    {% stylesheets 'bundles/app/template/fonts/montserrat.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/fonts/raleway.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/template/css/custom-header.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+        
+        {# DEPENDENCIA EXTERNA #}
+    <link rel='stylesheet' id='theme57763-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/main-style.css' type='text/css' media='all'/>
+
+    {% javascripts '@AppBundle/Resources/public/template/js/custom-home.js' %}
+        <script type='text/javascript' src="{{ asset_url }}"></script>
+    {% endjavascripts %}

@@ -1,0 +1,24 @@
+footer.footer::before{
+    background: transparent !important; 
+}
+
+footer.footer{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.footer-content{
+    padding-bottom: 0 !important;
+}
+
+.footer-content .footer-logo{
+    margin-bottom: 15px;
+}
+
+.home_text_number{
+    padding: 20px 0 40px !important;
+}
+
+.span4{
+    width: 360px !important;
+}

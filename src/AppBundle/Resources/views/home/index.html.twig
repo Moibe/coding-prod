@@ -2,49 +2,10 @@
 
 {% include 'AppBundle:layout:header.html.twig' %}
 
-<style type="text/css">
-    .parallax-slider{
-        height: 900px !important;
-    }
+{% stylesheets 'bundles/app/template/css/custom-home.css' filter='cssrewrite' %}
+<link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
 
-    .parallax-slider #mainCaptionHolder .slider_caption .subtitle-wrapper{
-        width: 40% !important;
-    }
-
-    .parallax-slider .parallaxNextBtn .icon-angle-right::before{
-        content: '>';
-        font-family: inherit;
-        font-size: 30px;
-        line-height: 40px;
-    }
-
-    .parallax-slider #mainCaptionHolder .container{
-        top: 25% !important;
-    }
-
-    .parallax-slider .parallaxPrevBtn .icon-angle-left::before{
-        content: '<';
-        font-family: inherit;
-        font-size: 30px;
-        line-height: 40px;
-    }
-
-    .featured_products .featured_products_wrap_inner .owl-theme .owl-controls .owl-buttons .owl-next::after{
-        font-family: initial !important;
-        content: '>' !important;
-    }
-
-    .featured_products .featured_products_wrap_inner .owl-theme .owl-controls .owl-buttons .owl-prev::after{
-        font-family: initial !important;
-        content: '<' !important;
-    }
-
-    .banner_text_home .banner_text_home_wrap_inner .banner-wrap h5{
-        left: 10px !important;
-        font-size: 25px !important;
-    }
-
-</style>
 
 <div id="parallax-slider-58e771280f371" class="parallax-slider">
     <ul class="baseList">
@@ -52,45 +13,51 @@
         <img src="{{ asset_url }}" alt="" class='img-responsive' />
         <li data-preview="{{ asset_url }}" data-thumb-url="{{ asset_url }}" data-ulr-link="">
             {% endimage %}
-            <div class="slider_caption"><h2>Desarrollo</h2>
+            <div class="slider_caption">
+                <h2>Desarrollo</h2>
                 <div class="subtitle-wrapper">
                     <h3>{% trans %}Desarrollo de apps, y páginas web{% endtrans %}</h3>
                 </div>
-                <a href="#" class="slider-button">{% trans %}Compra ahora!{% endtrans %}</a></div></li>
+                <a href="#" class="slider-button">{% trans %}Compra ahora!{% endtrans %}</a>
+            </div>
+        </li>
 
         {% image '@AppBundle/Resources/public/img/s2.jpg' %}
         <img src="{{ asset_url }}" alt="" class='img-responsive' />
         <li data-preview="{{ asset_url }}" data-thumb-url="{{ asset_url }}" data-ulr-link="">
             {% endimage %}
-
             <div class="slider_caption">
                 <h2>Programación</h2>
                 <div class="subtitle-wrapper">
                     <h3>{% trans %}Hola mundo!{% endtrans %}</h3>
                 </div>
-                <a href="#" class="slider-button">{% trans %}Compra ahora!{% endtrans %}</a></div></li>
-
-
+                <a href="#" class="slider-button">{% trans %}Compra ahora!{% endtrans %}</a>
+            </div>
+        </li>
     </ul>
 </div>
+
+
 <div class="motopress-wrapper content-holder clearfix">
     <div class="container">
         <div class="row">
             <div class="span12" data-motopress-wrapper-file="page-home.php" data-motopress-wrapper-type="content">
+
+
                 <div class="row">
                     <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-slider.php">
-                        <div class="slider_off"> </div>
+                        <div class="slider_off"></div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="span12" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
                         <div id="post-203" class="page post-203 type-page status-publish hentry">
-                            <div class="banner_text_home"><div class="banner_text_home_wrap_inner">
+                            <div class="banner_text_home">
+                                <div class="banner_text_home_wrap_inner">
                                     <div class="content_box custom_home_banner_content ">
-                                        <div class="row ">
-
+                                        <div class="row">
                                             {% for category in cat %}
-
                                                 <div class="span3 ">
                                                     <section class="lazy-load-box " data-delay="200" data-speed="800" style="-webkit-transition: all 800ms ease; -moz-transition: all 800ms ease; -ms-transition: all 800ms ease; -o-transition: all 800ms ease; transition: all 800ms ease;">
                                                         <a href="#" title="{{category.name}}" class="banner-wrap ">
@@ -101,22 +68,23 @@
                                                             </figure>
                                                             <h5>{{category.name}}</h5>
                                                             <div class="link-align banner-btn">{% trans %}Compra ahora!{% endtrans %}</div>
-                                                        </a> 
+                                                        </a>
                                                     </section>
                                                 </div>
                                             {% endfor %}
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="content_box home_text "></div>
+                                </div>
+                            </div>
 
-
-
-                                        </div> 
-                                        <div class="clear"></div></div> 
-                                    <div class="content_box home_text ">
-
-                                    </div> 
-                                </div></div>
-                            <div class="featured_products"><div class="featured_products_wrap_inner">
+                            <div class="featured_products">
+                                <div class="featured_products_wrap_inner">
                                     <div class="row ">
-                                        <div class="span12 "><h2>{% trans %}Productos Destacados{% endtrans %}</h2>
+                                        <div class="span12 ">
+                                            <h2>{% trans %}Productos Destacados{% endtrans %}</h2>
+
                                             {# INICIO DE SLIDE DE PRODUCTOS #}
                                             <div class="woocommerce">
                                                 <div class="cherry_wc_product_carousel " data-params='{"items":4, "itemsDesktop":[1199,4], "itemsDesktopSmall":[979,3], "itemsTablet":[768,2], "itemsMobile":[479,1], "navigation":true, "navigationText":["",""], "pagination":false}'>
@@ -125,45 +93,49 @@
                                                         {% for item in prod %}
                                                             <li class="first post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
 
-                                                                {# <a href="{{path('producto',{'slug':item.slug})}}"> #}
+
                                                                 <div class="cherry-thumb-wrap">
                                                                     {% image '@AppBundle/Resources/public/img/prod-default.png' %}
-
                                                                     <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 80%; background-position: center center;"></div>
                                                                     {% endimage %}
                                                                 </div>
                                                                 <h3>{{item.name}}</h3>
-                                                                <div style="width: auto;position: absolute;top: 15%;right: 0;"><div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:70px;height:70px;background-size: contain;background-repeat: no-repeat;"></div></div>
-                                                                <span class="price"><span class="amount">{{item.priceFormated}}</span></span>
-
-                                                                {# </a> #}
-                                                                {# <a href="{{path('producto',{'slug':item.slug})}}" rel="nofollow" data-product_id="1958" data-product_sku="" data-quantity="1" class="button add_to_cart_button product_type_simple">{% trans %}Compra ahora!{% endtrans %}</a> #}<div class="product-list-buttons" style="width: 100%;">
-
-                                                                    <form action="{{path('producto')}}" method="POST">
+                                                                <div style="width: auto;position: absolute;top: 15%;right: 0;">
+                                                                    <div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:70px;height:70px;background-size: contain;background-repeat: no-repeat;"></div>
+                                                                </div>
+                                                                <span class="price">
+                                                                    <span class="amount">&#36;{{item.price}}</span>
+                                                                </span>
+                                                                <div class="product-list-buttons" style="width: 100%;">
+                                                                    <form action="/checkout" method="POST">
                                                                         <input type="hidden" name="idd" value="{{item.id}}">
                                                                         <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
                                                                     </form>
-
-                                                                    <div class="clear"></div></div>
+                                                                    <div class="clear"></div>
+                                                                </div>
                                                             </li>
                                                         {% endfor %}
+                                                    </ul>
+                                                </div>
+                                                {# FIN CARRUSEL ITEMS #}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-
-                                                        {# FIN CARRUSEL ITEMS #}
-
-                                                    </ul></div>
-                                            </div></div>
-                                    </div> 
-                                </div></div> 
-
-
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+{# JS DEL TEMPLATE #}
+{% javascripts '@AppBundle/Resources/public/template/js/footer/*' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
 
 {% include 'AppBundle:layout:footer.html.twig' %}
 

@@ -1,0 +1,40 @@
+.parallax-slider{
+    height: 900px !important;
+}
+
+.parallax-slider #mainCaptionHolder .slider_caption .subtitle-wrapper{
+    width: 40% !important;
+}
+
+.parallax-slider .parallaxNextBtn .icon-angle-right::before{
+    content: '>';
+    font-family: inherit;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.parallax-slider #mainCaptionHolder .container{
+    top: 25% !important;
+}
+
+.parallax-slider .parallaxPrevBtn .icon-angle-left::before{
+    content: '<';
+    font-family: inherit;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.featured_products .featured_products_wrap_inner .owl-theme .owl-controls .owl-buttons .owl-next::after{
+    font-family: initial !important;
+    content: '>' !important;
+}
+
+.featured_products .featured_products_wrap_inner .owl-theme .owl-controls .owl-buttons .owl-prev::after{
+    font-family: initial !important;
+    content: '<' !important;
+}
+
+.banner_text_home .banner_text_home_wrap_inner .banner-wrap h5{
+    left: 10px !important;
+    font-size: 25px !important;
+}
