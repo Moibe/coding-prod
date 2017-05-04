@@ -308,4 +308,8 @@ class Product {
         return $this->getCurrency() ? $this->getCurrency()->getCode() : 'USD';
     }
 
+    public function __toString() {
+        return $this->getName();
+    }
+
 }
