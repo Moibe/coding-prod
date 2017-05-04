@@ -3,9 +3,10 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    
-    {# BOOTSTRAP QUITAR #}
-    <link rel="stylesheet" type="text/css" media="all" href="https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/bootstrap/css/bootstrap.css"/>
+
+    {% stylesheets 'bundles/app/template/css/bootstrap.css' filter='cssrewrite' %}
+        <link rel="stylesheet" type="text/css" media="all" href="{{ asset_url }}" />
+    {% endstylesheets %}
 
     {# SCRIPTS PARA AÑADIR AL BASE #}
 
@@ -58,10 +59,11 @@
     {% stylesheets 'bundles/app/template/css/custom-header.css' filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
-        
-        {# DEPENDENCIA EXTERNA #}
-    <link rel='stylesheet' id='theme57763-css' href='https://livedemo00.template-help.com/woocommerce_57763/wp-content/themes/theme57763/main-style.css' type='text/css' media='all'/>
 
+    {% stylesheets 'bundles/app/template/css/main-style.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+        
     {% javascripts '@AppBundle/Resources/public/template/js/custom-home.js' %}
         <script type='text/javascript' src="{{ asset_url }}"></script>
     {% endjavascripts %}
