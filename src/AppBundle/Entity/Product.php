@@ -93,15 +93,12 @@ class Product {
      */
     private $featured;
 
-   
-
     /**
      * Get id
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -112,8 +109,7 @@ class Product {
      *
      * @return Product
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -124,8 +120,7 @@ class Product {
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -136,8 +131,7 @@ class Product {
      *
      * @return Product
      */
-    public function setPrice($price)
-    {
+    public function setPrice($price) {
         $this->price = $price;
 
         return $this;
@@ -148,8 +142,7 @@ class Product {
      *
      * @return integer
      */
-    public function getPrice()
-    {
+    public function getPrice() {
         return $this->price;
     }
 
@@ -160,8 +153,7 @@ class Product {
      *
      * @return Product
      */
-    public function setLocale($locale)
-    {
+    public function setLocale($locale) {
         $this->locale = $locale;
 
         return $this;
@@ -172,8 +164,7 @@ class Product {
      *
      * @return string
      */
-    public function getLocale()
-    {
+    public function getLocale() {
         return $this->locale;
     }
 
@@ -184,8 +175,7 @@ class Product {
      *
      * @return Product
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -196,8 +186,7 @@ class Product {
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -208,8 +197,7 @@ class Product {
      *
      * @return Product
      */
-    public function setSlug($slug)
-    {
+    public function setSlug($slug) {
         $this->slug = $slug;
 
         return $this;
@@ -220,8 +208,7 @@ class Product {
      *
      * @return string
      */
-    public function getSlug()
-    {
+    public function getSlug() {
         return $this->slug;
     }
 
@@ -232,8 +219,7 @@ class Product {
      *
      * @return Product
      */
-    public function setFeatured($featured)
-    {
+    public function setFeatured($featured) {
         $this->featured = $featured;
 
         return $this;
@@ -244,8 +230,7 @@ class Product {
      *
      * @return boolean
      */
-    public function getFeatured()
-    {
+    public function getFeatured() {
         return $this->featured;
     }
 
@@ -256,8 +241,7 @@ class Product {
      *
      * @return Product
      */
-    public function setCategory(\AppBundle\Entity\Category $category = null)
-    {
+    public function setCategory(\AppBundle\Entity\Category $category = null) {
         $this->category = $category;
 
         return $this;
@@ -268,8 +252,7 @@ class Product {
      *
      * @return \AppBundle\Entity\Category
      */
-    public function getCategory()
-    {
+    public function getCategory() {
         return $this->category;
     }
 
@@ -280,8 +263,7 @@ class Product {
      *
      * @return Product
      */
-    public function setCurrency(\AppBundle\Entity\Currency $currency = null)
-    {
+    public function setCurrency(\AppBundle\Entity\Currency $currency = null) {
         $this->currency = $currency;
 
         return $this;
@@ -292,8 +274,7 @@ class Product {
      *
      * @return \AppBundle\Entity\Currency
      */
-    public function getCurrency()
-    {
+    public function getCurrency() {
         return $this->currency;
     }
 
@@ -304,8 +285,7 @@ class Product {
      *
      * @return Product
      */
-    public function setArchivo(\AppBundle\Entity\Image $archivo = null)
-    {
+    public function setArchivo(\AppBundle\Entity\Image $archivo = null) {
         $this->archivo = $archivo;
 
         return $this;
@@ -316,12 +296,16 @@ class Product {
      *
      * @return \AppBundle\Entity\Image
      */
-    public function getArchivo()
-    {
+    public function getArchivo() {
         return $this->archivo;
     }
-    
-    public function getPriceFormated(){
-        return $this->getCurrency() ? $this->getCurrency()->getSymbol().' ' . $this->getPrice() . ' ' . $this->getCurrency()->getCode() : $this->getPrice();
+
+    public function getPriceFormated() {
+        return $this->getCurrency() ? $this->getCurrency()->getSymbol() . ' ' . $this->getPrice() . ' ' . $this->getCurrency()->getCode() : $this->getPrice();
     }
+
+    public function getCode() {
+        return $this->getCurrency() ? $this->getCurrency()->getCode() : 'USD';
+    }
+
 }

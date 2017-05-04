@@ -17,7 +17,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository {
                 ->setParameter('ids', array($item->getId()))
                 ->addOrderBy('rand');
 
-        return $q->getQuery()->execute();
+        return $q->getQuery()->setMaxResults(4)->execute();
     }
 
 }

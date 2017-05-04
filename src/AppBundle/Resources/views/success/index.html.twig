@@ -69,7 +69,6 @@
 
 
                             <h1 class="text-center">¡Gracias por tu compra!</h1>
-                        {% if item.image != null %}{% endif %}
                         <div class="col-md-6 col-md-offset-3 text-center">
                             {% image '@AppBundle/Resources/public/img/prod-default.png' %}
                             <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 100%; background-position: center center;margin: auto;"></div>
@@ -90,10 +89,10 @@
 
                         {% if item.featured == false %}
                             <script type="text/javascript">
-                                    // Handler for .ready() called.
-                                    window.setTimeout(function () {
-                                        location.href = "{{redirect_url|replace({'{language}':item.locale})}}";
-                                    }, 5000);
+                                // Handler for .ready() called.
+                                window.setTimeout(function () {
+                                    location.href = "{{redirect_url|replace({'{language}':item.locale})}}";
+                                }, 5000);
                             </script>
                         {% endif %}
                     </div>

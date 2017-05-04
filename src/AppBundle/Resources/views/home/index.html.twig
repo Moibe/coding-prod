@@ -104,10 +104,10 @@
                                                                     <div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:70px;height:70px;background-size: contain;background-repeat: no-repeat;"></div>
                                                                 </div>
                                                                 <span class="price">
-                                                                    <span class="amount">&#36;{{item.price}}</span>
+                                                                    <span class="amount">{{item.priceFormated}}</span>
                                                                 </span>
                                                                 <div class="product-list-buttons" style="width: 100%;">
-                                                                    <form action="/checkout" method="POST">
+                                                                    <form action="{{path('producto')}}" method="POST">
                                                                         <input type="hidden" name="idd" value="{{item.id}}">
                                                                         <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
                                                                     </form>
