@@ -22,7 +22,9 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% include 'AppBundle:layout:header.html.twig' %}
         {% block body %}{% endblock %}
+        {% include 'AppBundle:layout:footer.html.twig' %}
         {% block javascripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         {% javascripts '@AppBundle/Resources/public/bootstrap/js/bootstrap.js'

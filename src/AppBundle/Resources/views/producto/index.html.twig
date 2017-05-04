@@ -2,13 +2,12 @@
 
 {% block body %}
 
-    {% include 'AppBundle:layout:header.html.twig' %}
+    <div id="parallax-slider-58e771280f371" class="parallax-slider"><ul class="baseList"><li></div>    
 
-    {% image '@AppBundle/Resources/public/img/prod-default.png' %}
-    {% set img_default = asset_url %}
-    {% endimage %}
+                {% image '@AppBundle/Resources/public/img/prod-default.png' %}
+                {% set img_default = asset_url %}
+                {% endimage %}
 
-    <div id="parallax-slider-58e771280f371" class="parallax-slider"><ul class="baseList"><li data-preview="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_01.png" data-thumb-url="https://livedemo00.template-help.com/woocommerce_57763/wp-content/uploads/2015/12/slide_01-100x50.png" data-ulr-link=""></div>
                 {% javascripts '@AppBundle/Resources/public/template/js/custom-home.js' %}
                 <script src="{{ asset_url }}"></script>
                 {% endjavascripts %}
@@ -101,16 +100,10 @@
                                                     {% endfor %}
                                                 </ul>
                                             </div>
-                                            <meta itemprop="url" content="https://livedemo00.template-help.com/woocommerce_57763/product/product-15/" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-                        {# FIN DEL BODY #}
-
-                        {% include 'AppBundle:layout:footer.html.twig' %}
-
-                    {% endblock %}
+            {# FIN DEL BODY #}
+    {% endblock %}
