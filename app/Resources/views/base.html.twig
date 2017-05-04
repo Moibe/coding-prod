@@ -10,32 +10,42 @@
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %} #}
 
-               {% stylesheets 
+            {% stylesheets 
                 'bundles/app/bootstrap/css/bootstrap.css'
                 'bundles/app/css/mainc.css' 
-                %}
-                <link rel="stylesheet" href="{{ asset_url }}" />
+            %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
 
-            
+
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% include 'AppBundle:layout:header.html.twig' %}
-        {% block body %}{% endblock %}
-        {% include 'AppBundle:layout:footer.html.twig' %}
-        {% block javascripts %}
+    {% block body %}{% endblock %}
+    {% include 'AppBundle:layout:footer.html.twig' %}
+    {% block javascripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         {% javascripts '@AppBundle/Resources/public/bootstrap/js/bootstrap.js'
             '@AppBundle/Resources/public/bootstrap/js/bootstrap.min.js'
         %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %} 
-        
-        {% javascripts '@AppBundle/Resources/public/template/js/footer/*' %}
-            <script src="{{ asset_url }}"></script>
+
+     {% javascripts 
+                        '@AppBundle/Resources/public/template/js/footer/device.min.js'
+                        '@AppBundle/Resources/public/template/js/footer/script.js'
+                        '@AppBundle/Resources/public/template/js/footer/superfish.js'
+                        '@AppBundle/Resources/public/template/js/footer/bootstrap.min.js'
+                        '@AppBundle/Resources/public/template/js/footer/jquery.mobilemenu.js'
+                        '@AppBundle/Resources/public/template/js/footer/tmstickup.js'
+                        '@AppBundle/Resources/public/template/js/footer/custom-script.js'
+                        '@AppBundle/Resources/public/template/js/footer/parallaxSlider.js'
+                        '@AppBundle/Resources/public/template/js/footer/owl.carousel.min.js'
+ %}
+        <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        {% endblock %}
-    </body>
+    {% endblock %}
+</body>
 </html>

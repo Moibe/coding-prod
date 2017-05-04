@@ -133,9 +133,19 @@
 </div>
 
 {# JS DEL TEMPLATE #}
-{% javascripts '@AppBundle/Resources/public/template/js/footer/*' %}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+      {% javascripts 
+                        '@AppBundle/Resources/public/template/js/footer/device.min.js'
+                        '@AppBundle/Resources/public/template/js/footer/script.js'
+                        '@AppBundle/Resources/public/template/js/footer/superfish.js'
+                        '@AppBundle/Resources/public/template/js/footer/bootstrap.min.js'
+                        '@AppBundle/Resources/public/template/js/footer/jquery.mobilemenu.js'
+                        '@AppBundle/Resources/public/template/js/footer/tmstickup.js'
+                        '@AppBundle/Resources/public/template/js/footer/custom-script.js'
+                        '@AppBundle/Resources/public/template/js/footer/parallaxSlider.js'
+                        '@AppBundle/Resources/public/template/js/footer/owl.carousel.min.js'
+ %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
 {% include 'AppBundle:layout:footer.html.twig' %}
 
