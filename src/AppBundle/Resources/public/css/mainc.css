@@ -29,3 +29,47 @@
 .parallax-slider{
     height: 143px !important;
 }
+
+.p-item-img{
+	width: 370px;
+	height: 370px; 
+	background-repeat: no-repeat; 
+	background-size: contain; 
+	background-position: center center;
+}
+
+.p-cat-c{
+	width: auto;
+	position: absolute;
+	top: 0;
+	left: 230px;
+}
+
+.p-cat-c-ot{
+	width: auto;
+	position: absolute;
+	top: 5%;
+	right: 0;
+}
+
+@media (max-width: 992px) {
+	.product-large-image{
+		width: 100% !important;
+	}
+
+	.p-item-img{
+		width: 100%;
+	}
+
+	.p-cat-c{
+		top: 3% !important;
+		left: initial;
+		right: 5% !important;
+	}
+
+	.p-cat-c-ot{
+		top: 3% !important;
+		left: initial;
+		right: 14% !important;
+	}
+}

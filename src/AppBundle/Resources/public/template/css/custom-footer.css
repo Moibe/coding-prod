@@ -22,3 +22,9 @@ footer.footer{
 .span4{
     width: 360px !important;
 }
+
+@media (max-width: 992px) {
+	#stats-g-c{
+		display: none;
+	}	
+}
