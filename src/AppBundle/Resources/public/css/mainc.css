@@ -108,4 +108,22 @@
 	    background-size: 80%; 
 	    background-position: center center;
 	}
+
+	.int-row{
+		width: 100%;
+		text-align: center;
+	}
+
+	.int-img{
+		margin: auto;
+		padding-right: 15%;
+	}
+
+	#text-2 a{
+		padding-right: 15%;
+	}
+
+	.m-a{
+		margin: auto;
+	}
 }
