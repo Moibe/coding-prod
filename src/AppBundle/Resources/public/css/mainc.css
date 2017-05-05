@@ -92,13 +92,15 @@
 	.prel-mb .owl-next::after{
         content: '>';
         background: transparent;
-        font-size: 35px;
+        font-size: 37px;
+        color: black;
     }
 
     .prel-mb .owl-prev::after{
         content: '<';
         background: transparent;
-        font-size: 35px;
+        font-size: 37px;
+        color: black;
     }
 
     .producto-default{
@@ -114,16 +116,53 @@
 		text-align: center;
 	}
 
+	.int-row2{
+		width: 104.5%;
+		margin-left: -15px !important;
+	}
+
+	#int-row2{
+		width: 104.5%;
+	}
+
 	.int-img{
 		margin: auto;
-		padding-right: 15%;
+		/*padding-right: 8%;*/
 	}
 
 	#text-2 a{
-		padding-right: 15%;
+		text-align: center;
 	}
 
 	.m-a{
 		margin: auto;
+		padding-right: 4%;
+	}
+
+	.text-copy{
+		/*padding-right: 5%;*/
+	}
+
+	#line-left{
+		margin-left: -15px;
+	}
+
+	.owl-theme .owl-controls .owl-buttons div{
+		background: transparent !important;
+		opacity: 1 !important;
+	}
+
+	.category-slg-c{
+	    width: auto;
+	    position: absolute;
+	    top: 12%;
+        right: 15%;
+	}
+
+	.category-logo{
+	    width: 70px;
+	    height:70px;
+	    background-size: contain;
+	    background-repeat: no-repeat;
 	}
 }
