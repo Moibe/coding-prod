@@ -94,27 +94,6 @@
                                                                         </a>
                                                                     </section>
                                                                 </div>
-
-
-                                                           {#      <div class="cherry-thumb-wrap">
-                                                                    {% image '@AppBundle/Resources/public/img/prod-default.png' %}
-                                                                    <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 80%; background-position: center center;"></div>
-                                                                    {% endimage %}
-                                                                </div>
-                                                                <h3>{{item.name}}</h3>
-                                                                <div style="width: auto;position: absolute;top: 15%;right: 0;">
-                                                                    <div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:70px;height:70px;background-size: contain;background-repeat: no-repeat;"></div>
-                                                                </div>
-                                                                <span class="price">
-                                                                    <span class="amount">{{item.priceFormated}}</span>
-                                                                </span>
-                                                                <div class="product-list-buttons" style="width: 100%;">
-                                                                    <form action="{{path('producto')}}" method="POST">
-                                                                        <input type="hidden" name="idd" value="{{item.id}}">
-                                                                        <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
-                                                                    </form>
-                                                                    <div class="clear"></div>
-                                                                </div> #}
                                                             </li>
                                                         {% endfor %}
                                                     </ul>
