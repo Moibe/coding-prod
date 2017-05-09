@@ -22,9 +22,13 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% include 'AppBundle:layout:header.html.twig' %}
+        {% block header %}
+            {% include 'AppBundle:layout:header.html.twig' %}
+        {% endblock %}
     {% block body %}{% endblock %}
-    {% include 'AppBundle:layout:footer.html.twig' %}
+    {% block footer %}
+        {% include 'AppBundle:layout:footer.html.twig' %}
+    {% endblock %}
     {% block javascripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         {% javascripts '@AppBundle/Resources/public/bootstrap/js/bootstrap.js'
@@ -33,58 +37,58 @@
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %} 
 
-  {% javascripts 
+        {% javascripts 
                         '@AppBundle/Resources/public/template/js/footer/device.min.js'
-%}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-{% javascripts 
+        {% javascripts 
                         '@AppBundle/Resources/public/template/js/footer/script.js'
-%}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-{% javascripts 
+        {% javascripts 
                         '@AppBundle/Resources/public/template/js/footer/superfish.js'
-%}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-{% javascripts 
+        {% javascripts 
                         '@AppBundle/Resources/public/template/js/footer/bootstrap.min.js'
-%}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-{% javascripts 
+        {% javascripts 
                         '@AppBundle/Resources/public/template/js/footer/jquery.mobilemenu.js'
-%}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-{% javascripts 
+        {% javascripts 
                         '@AppBundle/Resources/public/template/js/footer/tmstickup.js'
-%}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-{% javascripts 
+        {% javascripts 
                         '@AppBundle/Resources/public/template/js/footer/custom-script.js'
-%}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-{% javascripts 
+        {% javascripts 
                         '@AppBundle/Resources/public/template/js/footer/parallaxSlider.js'
-%}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-{% javascripts 
+        {% javascripts 
                         '@AppBundle/Resources/public/template/js/footer/owl.carousel.min.js'
-%}
-<script src="{{ asset_url }}"></script>
+        %}
+        <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}
 </body>

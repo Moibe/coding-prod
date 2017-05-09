@@ -3,36 +3,50 @@
 {% block body %}
 
     <div id="parallax-slider-58e771280f371" class="parallax-slider"><ul class="baseList"><li></div>
-    <body class="single single-product postid-1958 woocommerce woocommerce-page has_woocommerce has_shop olrk-live-chat">
-        <div id="" class="main-holder">
-            <div class="motopress-wrapper content-holder clearfix woocommerce">
-                <div class="container">
-                    <h1 class="text-center">¡Gracias por tu compra!</h1>
-                    <div class="col-md-6 col-md-offset-3 text-center">
-                        {% image '@AppBundle/Resources/public/img/prod-default.png' %}
-                        <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 100%; background-position: center center;margin: auto;"></div>
-                        {% endimage %}
-                        <div style="width: auto;position: absolute;top: 0;left: 55%;">
-                            <div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:100px;height:100px;background-size: contain;background-repeat: no-repeat;"></div>
-                        </div>
-                        <h1 class="text-center">{{item.name}}</h1>
-                    </div>
-                    <div class="clearfix"></div>
+            <body class="single single-product postid-1958 woocommerce woocommerce-page has_woocommerce has_shop olrk-live-chat">
+                <div id="" class="main-holder">
+                    <div class="motopress-wrapper content-holder clearfix woocommerce">
+                        <div class="container">
+                            <h1 class="text-center">¡Gracias por tu compra!</h1>
+                            <div class="col-md-6 col-md-offset-3 text-center">
 
-                    {% if item.archivo != null %}
-                        <div class="col-md-12 text-center" style="margin-bottom: 5%;">
-                            <p class="tex-center">Aquí podrás descargar más información del producto:</p>
-                            <a href="{{item.archivo|vlabs_media('default')}}" download=""><button>DESCARGA ZIP</button></a>
-                        </div>
-                    {% endif %}
+                                {% if item.featured == false %}
+                                    {% image '@AppBundle/Resources/public/img/prod-default.png' %}
+                                    <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 100%; background-position: center center;margin: auto;"></div>
+                                    {% endimage %}
+                                    <div style="width: auto;position: absolute;top: 0;left: 55%;">
+                                        <div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:100px;height:100px;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                {% else %}
+                                    {% image '@AppBundle/Resources/public/img/preview.jpg' %}
+                                    <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 100%; background-position: center center;margin: auto;"></div>
+                                    {% endimage %}
+                                {% endif %}
+                                <h1 class="text-center">{{item.name}}</h1>
+                            </div>
+                            <div class="clearfix"></div>
 
-                    {% if item.featured == false %}
-                        <script type="text/javascript">
-                            // Handler for .ready() called.
-                            window.setTimeout(function () {
-                                location.href = "{{redirect_url|replace({'{language}':item.locale})}}";
-                            }, 3000);
-                        </script>
-                    {% endif %}
-                </div>
-{% endblock %}
+                            {% if item.archivo != null and not item.featured == true %}
+                                <div class="col-md-12 text-center" style="margin-bottom: 5%;">
+                                    <p class="tex-center">Aquí podrás descargar más información del producto:</p>
+                                    <a href="{{item.archivo|vlabs_media('default')}}" download=""><button>DESCARGA ZIP</button></a>
+                                </div>
+                            {% endif %}
+
+                            {% if item.featured == false %}
+                                {% block footer %}
+                                    <script type="text/javascript">
+                                        // Handler for .ready() called.
+                                        window.setTimeout(function () {
+                                            location.href = "{{redirect_url|replace({'{language}':item.locale})}}";
+                                        }, 3000);
+                                    </script>
+                                {% endblock %}
+                                {% block header %}
+                                    {% include 'AppBundle:layout:header2.html.twig' %}
+                                {% endblock %}
+
+                                {% block title %}Geopositioning Services{% endblock %}
+                            {% endif %}
+                        </div>
+                    {% endblock %}

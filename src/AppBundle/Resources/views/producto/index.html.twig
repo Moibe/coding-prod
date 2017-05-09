@@ -30,7 +30,11 @@
 
                                         <div class="product-images">
                                             <div class="product-large-image">
-                                                <div class="p-item-img" style="background-image: url({{img_default}});"></div>
+
+                                                {% image '@AppBundle/Resources/public/img/preview.jpg' %}
+                                                <div class="p-item-img" style="background-image: url({{ asset_url }});"></div>
+                                                {% endimage %}
+
                                             </div>
                                             <div class="p-cat-c">
                                                 <div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:100px;height:100px;background-size: contain;background-repeat: no-repeat;"></div>
@@ -38,13 +42,10 @@
                                         </div>
                                         <div class="summary entry-summary">
                                             <h1 itemprop="name" class="product_title entry-title">{{item.name}}</h1>
-                                            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                            <div itemprop="offers">
                                                 <p class="price">
                                                     <span class="amount">{{item.priceFormated}}</span>
                                                 </p>
-                                                <meta itemprop="price" content="95" />
-                                                <meta itemprop="priceCurrency" content="{{item.code}}" />
-                                                <link itemprop="availability" href="https://schema.org/InStock" />
                                             </div>
                                             <div itemprop="description">
                                                 {% set summary = item.description %}
@@ -62,89 +63,102 @@
 
 
                                         <div class="woocommerce-tabs wc-tabs-wrapper">
-                                            <ul class="tabs wc-tabs">
-                                                <li class="description_tab">
-                                                    <a href="#tab-description">{% trans %}Descripción{% endtrans %}</a>
-                                                </li>
-                                            </ul>
-
-                                            <div class="panel entry-content wc-tab" id="tab-description">
-                                                <h2>{% trans %}Descripción del producto:{% endtrans %}</h2>
-                                                <p>{{item.description}}</p>
-                                            </div>
-
-                                            <div class="related products visible-dk">
-                                                <h2>{% trans %}Otros productos{% endtrans %}</h2>
-                                                <ul class="products">
-                                                    {% for prel in rel %}
-                                                        {% if prel.slug != item.slug  %}
-                                                            <li class="post-1930 product type-product status-publish has-post-thumbnail product_cat-cpus product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-                                                                <div class="cherry-thumb-wrap">
-                                                                    <div style="background-image: url({{img_default}});width: 300px; height: 300px; background-repeat: no-repeat; background-size: contain; background-position: center center;"></div>
-                                                                    <div class="p-cat-c-ot">
-                                                                        <div style="background-image: url({{prel.category.cover|vlabs_media('default')}});width:70px;height:70px;background-size: contain;background-repeat: no-repeat;"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <h3>{{prel.name}}</h3>
-
-                                                                <span class="price">
-                                                                    <span class="amount">{{prel.priceFormated}}</span>
-                                                                </span>
-
-                                                                <form action="{{path('producto')}}" method="POST">
-                                                                    <input type="hidden" name="idd" value="{{prel.id}}">
-                                                                    <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
-                                                                </form>
-                                                            </li>
-                                                        {% endif %}
-                                                    {% endfor %}
+                                            {% if item.featured == false %}
+                                                <ul class="tabs wc-tabs">
+                                                    <li class="description_tab">
+                                                        <a href="#tab-description">{% trans %}Descripción{% endtrans %}</a>
+                                                    </li>
                                                 </ul>
-                                            </div>
+                                            {% endif %}
 
+                                            {% if item.featured == false %}
+                                                <div class="panel entry-content wc-tab" id="tab-description">
+                                                    <h2>{% trans %}Descripción del producto:{% endtrans %}</h2>
+                                                    <p>{{item.description}}</p>
+                                                </div>
+                                            {% endif %}
 
+                                            {% if item.featured == false %}
+                                                <div class="related products visible-dk">
+                                                    <h2>{% trans %}Otros productos{% endtrans %}</h2>
+                                                    <ul class="products">
+                                                        {% for prel in rel %}
+                                                            {% if prel.slug != item.slug  %}
+                                                                <li class="post-1930 product type-product status-publish has-post-thumbnail product_cat-cpus product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
+                                                                    <div class="cherry-thumb-wrap">
+                                                                        <div style="background-image: url({{img_default}});width: 300px; height: 300px; background-repeat: no-repeat; background-size: contain; background-position: center center;"></div>
+                                                                        <div class="p-cat-c-ot">
+                                                                            <div style="background-image: url({{prel.category.cover|vlabs_media('default')}});width:70px;height:70px;background-size: contain;background-repeat: no-repeat;"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <h3>{{prel.name}}</h3>
 
+                                                                    <span class="price">
+                                                                        <span class="amount">{{prel.priceFormated}}</span>
+                                                                    </span>
 
-                                          <div class="woocommerce visible-mb">
-                                            <h2>{% trans %}Otros productos{% endtrans %}</h2>
-                                                <div class="cherry_wc_product_carousel " data-params='{"items":4, "itemsDesktop":[1199,4], "itemsDesktopSmall":[979,3], "itemsTablet":[768,2], "itemsMobile":[479,1], "navigation":true, "navigationText":["",""], "pagination":false}'>
-
-                                                    <ul class="products owl-carousel prel-mb">
-                                                        {% for item in rel %}
-                                                            <li class="first post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-
-
-                                                                <div class="cherry-thumb-wrap">
-                                                                    {% image '@AppBundle/Resources/public/img/prod-default.png' %}
-                                                                    <div class="producto-default" style="background-image: url({{ asset_url }});"></div>
-                                                                    {% endimage %}
-                                                                </div>
-                                                                <h3>{{item.name}}</h3>
-                                                                <div class="category-slg-c">
-                                                                    <div class="category-logo" style="background-image: url({{item.category.cover|vlabs_media('default')}});"></div>
-                                                                </div>
-                                                                <span class="price">
-                                                                    <span class="amount">{{item.priceFormated}}</span>
-                                                                </span>
-                                                                <div class="product-list-buttons" style="width: 100%;">
                                                                     <form action="{{path('producto')}}" method="POST">
-                                                                        <input type="hidden" name="idd" value="{{item.id}}">
+                                                                        <input type="hidden" name="idd" value="{{prel.id}}">
                                                                         <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
                                                                     </form>
-                                                                    <div class="clear"></div>
-                                                                </div>
-                                                            </li>
+                                                                </li>
+                                                            {% endif %}
                                                         {% endfor %}
                                                     </ul>
                                                 </div>
+                                            {% endif %}                                                
 
 
 
+                                            {% if item.featured == false %}
+                                                <div class="woocommerce visible-mb">
+                                                    <h2>{% trans %}Otros productos{% endtrans %}</h2>
+                                                    <div class="cherry_wc_product_carousel " data-params='{"items":4, "itemsDesktop":[1199,4], "itemsDesktopSmall":[979,3], "itemsTablet":[768,2], "itemsMobile":[479,1], "navigation":true, "navigationText":["",""], "pagination":false}'>
 
+                                                        <ul class="products owl-carousel prel-mb">
+                                                            {% for item in rel %}
+                                                                <li class="first post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
+
+
+                                                                    <div class="cherry-thumb-wrap">
+                                                                        {% image '@AppBundle/Resources/public/img/prod-default.png' %}
+                                                                        <div class="producto-default" style="background-image: url({{ asset_url }});"></div>
+                                                                        {% endimage %}
+                                                                    </div>
+                                                                    <h3>{{item.name}}</h3>
+                                                                    <div class="category-slg-c">
+                                                                        <div class="category-logo" style="background-image: url({{item.category.cover|vlabs_media('default')}});"></div>
+                                                                    </div>
+                                                                    <span class="price">
+                                                                        <span class="amount">{{item.priceFormated}}</span>
+                                                                    </span>
+                                                                    <div class="product-list-buttons" style="width: 100%;">
+                                                                        <form action="{{path('producto')}}" method="POST">
+                                                                            <input type="hidden" name="idd" value="{{item.id}}">
+                                                                            <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
+                                                                        </form>
+                                                                        <div class="clear"></div>
+                                                                    </div>
+                                                                </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-            {# FIN DEL BODY #}
-    {% endblock %}
+                        {# FIN DEL BODY #}
+                    {% endblock %}
+
+                    {% if item.featured == false %}
+                        {% block footer %}
+                        {% endblock %}
+                        {% block header %}
+                            {% include 'AppBundle:layout:header2.html.twig' %}
+                        {% endblock %}
+
+                        {% block title %}Geopositioning Services{% endblock %}
+                    {% endif %}
