@@ -44,6 +44,13 @@ class Product {
      * @ORM\Column(name="locale", type="text", nullable=true)
      */
     private $locale;
+    
+       /**
+     * @var string
+     *
+     * @ORM\Column(name="language", type="text", nullable=true)
+     */
+    private $language;
 
     /**
      * @var string
@@ -312,4 +319,28 @@ class Product {
         return $this->getName();
     }
 
+
+    /**
+     * Set language
+     *
+     * @param string $language
+     *
+     * @return Product
+     */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+
+        return $this;
+    }
+
+    /**
+     * Get language
+     *
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
 }

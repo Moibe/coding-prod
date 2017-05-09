@@ -1,9 +1,6 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-
     <div id="parallax-slider-58e771280f371" class="parallax-slider"><ul class="baseList"><li></div>    
-
                 {% image '@AppBundle/Resources/public/img/prod-default.png' %}
                 {% set img_default = asset_url %}
                 {% endimage %}
@@ -12,10 +9,8 @@
                 <script src="{{ asset_url }}"></script>
                 {% endjavascripts %}
                 </head>
-
             <body class="single single-product postid-1958 woocommerce woocommerce-page has_woocommerce has_shop olrk-live-chat">
                 <div id="" class="main-holder">
-
                     <div class="motopress-wrapper content-holder clearfix woocommerce">
                         <div class="container">
                             <div class="row">
@@ -25,20 +20,22 @@
                             </div>
                             <div class="row">
                                 <div class="span12" id="content" style="padding-top: 0 !important;">
-
                                     <div itemscope id="product-1958" class="post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-
                                         <div class="product-images">
                                             <div class="product-large-image">
-
-                                                {% image '@AppBundle/Resources/public/img/preview.jpg' %}
-                                                <div class="p-item-img" style="background-image: url({{ asset_url }});"></div>
-                                                {% endimage %}
-
+                                                {% if item.featured == false %}
+                                                    {% image '@AppBundle/Resources/public/img/preview.jpg' %}
+                                                    <div class="p-item-img" style="background-image: url({{ asset_url }});"></div>
+                                                    {% endimage %}
+                                                {%else %}
+                                                    <div class="p-item-img" style="background-image: url({{ img_default }});"></div>
+                                                {%endif %}
                                             </div>
+                                            {% if item.featured == true %}
                                             <div class="p-cat-c">
                                                 <div style="background-image: url({{item.category.cover|vlabs_media('default')}});width:100px;height:100px;background-size: contain;background-repeat: no-repeat;"></div>
                                             </div>
+                                            {% endif %}
                                         </div>
                                         <div class="summary entry-summary">
                                             <h1 itemprop="name" class="product_title entry-title">{{item.name}}</h1>
@@ -47,38 +44,41 @@
                                                     <span class="amount">{{item.priceFormated}}</span>
                                                 </p>
                                             </div>
-                                            <div itemprop="description">
-                                                {% set summary = item.description %}
-                                                <p>{{summary|slice(0, 108)}}{% if summary|length > 108 %}...{% endif %}</p>
-                                            </div>
-                                            <script src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=G7U44DV23NZ9N"
+                                            {% if item.featured == true %}
+                                                <div itemprop="description">
+                                                    {% set summary = item.description %}
+                                                    <p>{{summary|slice(0, 108)}}{% if summary|length > 108 %}...{% endif %}</p>
+                                                </div>
+                                            {% endif %}
+                                            <script src="{{asset('/bundles/app/js/button.js')}}?merchant=G7U44DV23NZ9N"
                                                     data-button="buynow"
                                                     data-name="{{item.name}}"
                                                     data-amount="{{item.price}}"
                                                     data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-return="{{url('ok')}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
                                                     async>
                                             </script>
                                             <div class="clear"></div>
                                         </div>
-
-
                                         <div class="woocommerce-tabs wc-tabs-wrapper">
-                                            {% if item.featured == false %}
+                                            {% if item.featured == true %}
                                                 <ul class="tabs wc-tabs">
                                                     <li class="description_tab">
                                                         <a href="#tab-description">{% trans %}Descripción{% endtrans %}</a>
                                                     </li>
                                                 </ul>
                                             {% endif %}
-
-                                            {% if item.featured == false %}
+                                            {% if item.featured == true %}
                                                 <div class="panel entry-content wc-tab" id="tab-description">
                                                     <h2>{% trans %}Descripción del producto:{% endtrans %}</h2>
                                                     <p>{{item.description}}</p>
                                                 </div>
                                             {% endif %}
-
-                                            {% if item.featured == false %}
+                                            {% if item.featured == true %}
                                                 <div class="related products visible-dk">
                                                     <h2>{% trans %}Otros productos{% endtrans %}</h2>
                                                     <ul class="products">
@@ -92,11 +92,9 @@
                                                                         </div>
                                                                     </div>
                                                                     <h3>{{prel.name}}</h3>
-
                                                                     <span class="price">
                                                                         <span class="amount">{{prel.priceFormated}}</span>
                                                                     </span>
-
                                                                     <form action="{{path('producto')}}" method="POST">
                                                                         <input type="hidden" name="idd" value="{{prel.id}}">
                                                                         <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
@@ -107,19 +105,13 @@
                                                     </ul>
                                                 </div>
                                             {% endif %}                                                
-
-
-
-                                            {% if item.featured == false %}
+                                            {% if item.featured == true %}
                                                 <div class="woocommerce visible-mb">
                                                     <h2>{% trans %}Otros productos{% endtrans %}</h2>
                                                     <div class="cherry_wc_product_carousel " data-params='{"items":4, "itemsDesktop":[1199,4], "itemsDesktopSmall":[979,3], "itemsTablet":[768,2], "itemsMobile":[479,1], "navigation":true, "navigationText":["",""], "pagination":false}'>
-
                                                         <ul class="products owl-carousel prel-mb">
                                                             {% for item in rel %}
                                                                 <li class="first post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
-
-
                                                                     <div class="cherry-thumb-wrap">
                                                                         {% image '@AppBundle/Resources/public/img/prod-default.png' %}
                                                                         <div class="producto-default" style="background-image: url({{ asset_url }});"></div>
@@ -152,13 +144,25 @@
                         </div>
                         {# FIN DEL BODY #}
                     {% endblock %}
+                    {% block footer %}
+                        {% if item.featured == false %}
+                        {% else %}
+                            {{parent()}}
+                        {% endif %}
 
-                    {% if item.featured == false %}
-                        {% block footer %}
-                        {% endblock %}
-                        {% block header %}
+                    {% endblock %}
+                    {% block header %}
+                        {% if item.featured == false %}
                             {% include 'AppBundle:layout:header2.html.twig' %}
-                        {% endblock %}
+                        {% else %}
+                            {{parent()}}
+                        {% endif %}
+                    {% endblock %}
 
-                        {% block title %}Geopositioning Services{% endblock %}
-                    {% endif %}
+                    {% block title %}
+                        {% if item.featured == false %}
+                            Geopositioning Services
+                        {% else %}
+                            {{parent()}}
+                        {% endif %}
+                    {% endblock %}

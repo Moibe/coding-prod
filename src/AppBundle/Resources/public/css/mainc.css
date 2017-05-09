@@ -166,3 +166,10 @@
 	    background-repeat: no-repeat;
 	}
 }
+
+.paypal-button{
+    padding: 0 !important;
+}
+body #motopress-main.main-holder .content-holder div.product button[type="submit"]{
+    line-height: 17px !important;
+}
