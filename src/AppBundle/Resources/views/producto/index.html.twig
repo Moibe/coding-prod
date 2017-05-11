@@ -146,6 +146,7 @@
                     {% endblock %}
                     {% block footer %}
                         {% if item.featured == false %}
+                             {% include 'AppBundle:layout:footer2.html.twig' %}
                         {% else %}
                             {{parent()}}
                         {% endif %}
