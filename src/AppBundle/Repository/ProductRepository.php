@@ -14,7 +14,7 @@ class ProductRepository extends \Doctrine\ORM\EntityRepository {
         $q = $this->createQueryBuilder('e')
                 ->addSelect('RAND() as HIDDEN rand')
                 ->andWhere('e.id NOT IN (:ids)')
-                ->andWhere('e.featerud = 1')
+                ->andWhere('e.featured = 1')
                 ->setParameter('ids', array($item->getId()))
                 ->addOrderBy('rand');
 
