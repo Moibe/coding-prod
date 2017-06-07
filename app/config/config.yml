@@ -78,6 +78,9 @@ assetic:
         cssrewrite: ~
 
 easy_admin:
+    design:
+      assets:
+        js: ['https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js', '/bundles/app/js/customadmin.js']
     entities:
         - AppBundle\Entity\Product
         - AppBundle\Entity\Category

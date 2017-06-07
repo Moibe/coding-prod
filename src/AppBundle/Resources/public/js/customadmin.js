@@ -1,0 +1,1 @@
+CKEDITOR.replace( 'product_description' );

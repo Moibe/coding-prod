@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="parallax-slider-58e771280f371" class="parallax-slider"><ul class="baseList"><li></div>
+            <body class="single single-product postid-1958 woocommerce woocommerce-page has_woocommerce has_shop olrk-live-chat">
+                <div id="" class="main-holder">
+                    <div class="motopress-wrapper content-holder clearfix woocommerce">
+                        <div class="container container-m-h">
+                            {% for item in prod %}
+                                <div class="col-md-4">
+                                    {% image '@AppBundle/Resources/public/img/prod-default.png' %}
+                                        <img src="{{asset_url}}" class="img-responsive">
+                                    {% endimage %}
+                                    <div class="all-prod-cat" style="background-image: url({{item.category.cover|vlabs_media('default')}});"></div>
+                                    <h2 class="text-center">{{item.name}}</h2>                                    
+                                    {% set summary = item.description|striptags %}
+                                    <p>{{summary|slice(0, 108)}}{% if summary|length > 108 %}...{% endif %}</p>
+                                    <div class="product-list-buttons" style="width: 100%;">
+                                        <form action="{{path('producto')}}" method="POST">
+                                            <input type="hidden" name="idd" value="{{item.id}}">
+                                            <input type="submit" name="send"  value="{% trans %}Compra ahora!{% endtrans %}" style="width: 100%;margin-top: 5%;">
+                                        </form>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            {% endfor %}                            
+                        </div>
+                    {% endblock %}                    

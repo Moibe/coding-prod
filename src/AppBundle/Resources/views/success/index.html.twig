@@ -25,8 +25,9 @@
                             <div class="clearfix"></div>
                             {% if item.archivo != null and item.featured == true %}
                                 <div class="col-md-12 text-center" style="margin-bottom: 5%;">
-                                    <p class="tex-center">Aquí podrás descargar más información del producto:</p>
-                                    <a href="{{item.archivo|vlabs_media('default')}}" download=""><button>DESCARGA ZIP</button></a>
+                                    <p class="tex-center">Descarga tus archivos:</p>
+                                    <a href="{{item.archivo|vlabs_media('default')}}" download=""><button>DESCARGAR</button></a>
+                                    <p class="text-center">Cualquier pregunta sobre tu producto no dudes en escribir a support@coding-depot.com</p>
                                 </div>
                             {% endif %}
                             {% if item.featured == false %}

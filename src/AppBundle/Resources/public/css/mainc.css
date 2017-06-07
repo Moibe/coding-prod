@@ -61,6 +61,12 @@
 
 @media (max-width: 992px) {
 
+	.all-prod-cat{
+		top: 15% !important;
+		right: 12% !important;
+	}
+
+
 	.visible-dk{
         display: none !important;
     }
@@ -167,9 +173,35 @@
 	}
 }
 
+.nav__primary .sf-menu > li > a{
+	padding: 25px 13px  !important;
+}
+
 .paypal-button{
     padding: 0 !important;
 }
 body #motopress-main.main-holder .content-holder div.product button[type="submit"]{
     line-height: 17px !important;
+}
+
+
+/*	OPCIONES MENÚ	*/
+
+.container-m-h{
+	min-height: 400px;
+}
+
+.all-prod-cat{
+	height: 100px;
+	width: 100px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	position: absolute;
+	top: 0;
+	right: 22%;
+}
+
+.span-menu-container{
+	width: 60% !important;
 }

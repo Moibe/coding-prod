@@ -44,12 +44,7 @@
                                                     <span class="amount">{{item.priceFormated}}</span>
                                                 </p>
                                             </div>
-                                            {% if item.featured == true %}
-                                                <div itemprop="description">
-                                                    {% set summary = item.description %}
-                                                    <p>{{summary|slice(0, 108)}}{% if summary|length > 108 %}...{% endif %}</p>
-                                                </div>
-                                            {% endif %}
+
                                             <script src="{{asset('/bundles/app/js/button.js')}}?merchant=G7U44DV23NZ9N"
                                                     data-button="buynow"
                                                     data-name="Coding Service"
@@ -75,7 +70,7 @@
                                             {% if item.featured == true %}
                                                 <div class="panel entry-content wc-tab" id="tab-description">
                                                     <h2>{% trans %}Descripción del producto:{% endtrans %}</h2>
-                                                    <p>{{item.description}}</p>
+                                                    {{item.description|raw}}
                                                 </div>
                                             {% endif %}
                                             {% if item.featured == true %}

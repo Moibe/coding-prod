@@ -55,4 +55,41 @@ class DefaultController extends Controller {
         return array('item' => $result);
     }
 
+    /**
+     * @Route("/como-funciona", name="how")
+     * @Template("AppBundle:how:index.html.twig")
+     */
+    public function howAction() {
+
+        return array();
+    }
+
+    /**
+     * @Route("/preguntas-frecuentes", name="faqs")
+     * @Template("AppBundle:faqs:index.html.twig")
+     */
+    public function faqsAction() {
+
+        return array();
+    }
+
+    /**
+     * @Route("/terminos-y-condiciones", name="terms")
+     * @Template("AppBundle:terms:index.html.twig")
+     */
+    public function termsAction() {
+
+        return array();
+    }
+
+    /**
+     * @Route("/todos-los-productos", name="all")
+     * @Template("AppBundle:all:index.html.twig")
+     */
+    public function allAction() {
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+        $result = $repository->findAll();
+        return array('prod' => $result);
+    }
+
 }
