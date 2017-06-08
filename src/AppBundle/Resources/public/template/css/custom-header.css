@@ -50,3 +50,36 @@ body{
 .nav.footer-nav a{
 	font:normal 16px/18px Montserrat;color:#ffffff;
 }
+
+/*	MENU MOBILE*/
+
+.select-menu{
+	display: none !important;
+}
+
+.burguer-menu i{
+	font-size: 2rem;
+	position: absolute;
+	top: 0;
+	right: 8%;
+} 
+
+#effect{
+	display: none;
+}
+
+.menu-mb-c li{
+	list-style: none;
+}
+
+.menu-mb-c{
+	margin-left: -10%;
+}
+
+@media (min-width: 992px) {
+	.burguer-menu{
+		display: none !important;
+	}
+}
+
+/*	END MENU MOBILE*/

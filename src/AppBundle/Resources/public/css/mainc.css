@@ -59,7 +59,7 @@
 	}	
 }
 
-@media (max-width: 992px) {
+@media (max-width: 992px) {	
 
 	.all-prod-cat{
 		top: 15% !important;
@@ -205,3 +205,49 @@ body #motopress-main.main-holder .content-holder div.product button[type="submit
 .span-menu-container{
 	width: 60% !important;
 }
+
+/*	MENU MOBILE*/
+
+
+.logo_h__txt,.logo_link{
+	font:bold 30px/30px Montserrat;color:#1f1f1f;
+}
+
+.sf-menu>li>a{
+	font:normal 15px Montserrat;color:#1f1f1f;
+}
+
+.nav.footer-nav a{
+	font:normal 16px/18px Montserrat;color:#ffffff;
+}
+
+.select-menu{
+	display: none !important;
+}
+
+.burguer-menu i{
+	font-size: 2rem;
+	position: absolute;
+	top: 20px !important;
+	right: 44px !important;
+} 
+
+#effect{
+	display: none;
+}
+
+.menu-mb-c li{
+	list-style: none;
+}
+
+.menu-mb-c{
+	margin-left: -10%;
+}
+
+@media (min-width: 992px) {
+	.burguer-menu{
+		display: none !important;
+	}
+}
+
+/*	END MENU MOBILE*/

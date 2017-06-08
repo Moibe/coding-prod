@@ -63,6 +63,10 @@
     {% stylesheets 'bundles/app/template/css/main-style.css' filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
+
+    {% javascripts '@AppBundle/Resources/public/js/jquery-ui.js' %}
+        <script type='text/javascript' src="{{ asset_url }}"></script>
+    {% endjavascripts %}
         
     {% javascripts '@AppBundle/Resources/public/template/js/custom-home.js' %}
         <script type='text/javascript' src="{{ asset_url }}"></script>
