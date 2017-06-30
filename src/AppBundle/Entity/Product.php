@@ -34,7 +34,7 @@ class Product {
     /**
      * @var int
      *
-     * @ORM\Column(name="price", type="integer")
+     * @ORM\Column(name="price", type="float")
      */
     private $price;
 
@@ -129,28 +129,6 @@ class Product {
      */
     public function getName() {
         return $this->name;
-    }
-
-    /**
-     * Set price
-     *
-     * @param integer $price
-     *
-     * @return Product
-     */
-    public function setPrice($price) {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return integer
-     */
-    public function getPrice() {
-        return $this->price;
     }
 
     /**
@@ -342,5 +320,29 @@ class Product {
     public function getLanguage()
     {
         return $this->language;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     *
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

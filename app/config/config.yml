@@ -37,7 +37,8 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
-        redirect_url: "%redirect_url%"    
+        redirect_url: "%redirect_url%"
+        payment_method: conekta
 # Doctrine Configuration
 doctrine:
     dbal:

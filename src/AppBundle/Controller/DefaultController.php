@@ -97,53 +97,66 @@ class DefaultController extends Controller {
 
     /**
      * @Route("/payment-test", name="payment")
+     * @Method({"POST"})
      */
-    public function paymentAction() {
+    public function paymentAction(Request $request) {
 
-    setApiKey("key_93HD4i8jEdq4yA66xtdLXQ");
-    $valid_order =
-    array(
-        'line_items'=> array(
-            array(
-                'name'        => 'Box of Cohiba S1s',
-                'description' => 'Imported From Mex.',
-                'unit_price'  => 20000,
-                'quantity'    => 1,
-                'sku'         => 'cohb_s1',
-                'category'    => 'food',
-                'tags'        => array('food', 'mexican food')
-                )
-           ),
-          'currency'    => 'mxn',
-          'metadata'    => array('test' => 'extra info'),
-          'charges'     => array(
-              array(
-                  'payment_source' => array(
-                      'type'       => 'oxxo_cash',
-                      'expires_at' => strtotime(date("Y-m-d H:i:s")) + "36000"
-                   ),
-                   'amount' => 20000
-                )
-            ),
-            'currency'      => 'mxn',
-            'customer_info' => array(
-                'name'  => 'John Constantine',
-                'phone' => '+5213353319758',
-                'email' => 'hola@hola.com'
-            )
-        );
+    $itemPrice = $request->get('item-price') * 100;
 
-try {
-  $order = \Conekta\Order::create($valid_order);
-} catch (\Conekta\ProcessingError $e){ 
-  echo $e->getMessage();
-} catch (\Conekta\ParameterValidationError $e){
-  echo $e->getMessage();
-} finally (\Conekta\Handler $e){
-  echo $e->getMessage();
-}
-
+    $apiEnvKey = getenv('CONEKTA_API');
+    if (!$apiEnvKey) {
+        // CAMBIAR POR LA LLAVE PRIVADA DE PRODUCCIÓN
+      $apiEnvKey = 'key_93HD4i8jEdq4yA66xtdLXQ';
     }
+    \Conekta\Conekta::setApiKey($apiEnvKey);
+
+     $validOrder =
+  array(
+    'line_items'=> array(
+      array(
+        'name'=> $request->get('item-name'),
+        'description'=> $request->get('item-name').' by Coding Depot',
+        'unit_price'=> $itemPrice,
+        'quantity'=> 1,
+        )
+      ),
+    'currency' => 'mxn',
+    );
+
+    $charges = array(
+      'charges' => array(
+        array(
+          'payment_method' => array(
+            'type' => 'card',
+            'token_id'=> $request->get('conektaTokenId')
+            ),
+            // MODIFICAR POR EL TOTAL DEL CARRITO DE COMPRAS
+          'amount' => $itemPrice
+          )
+        ),
+      'currency'    => 'mxn',
+      'customer_info' => array(
+        'name' => $request->get('card-name'),
+        'phone' => $request->get('user-phone'),
+        'email' => $request->get('user-mail')
+        )
+      );
+
+    $order = \Conekta\Order::create(array_merge($validOrder, $charges));
+
+        // COMPRA EXITOSA
+    if ($order->payment_status == "paid") {
+
+        $session = $this->get('session');
+        $id = $session->get('item');
+
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+        $result = $repository->findOneBy(array('id' => $id));
+
+        return $this->render('AppBundle:success:index.html.twig', array('item' => $result));
+    }
+
+} //FIN PAYMENT METHOD
 
 
 }

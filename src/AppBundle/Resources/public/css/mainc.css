@@ -18,6 +18,10 @@
 	margin-top: 5%;
 }
 
+.m-b-5{
+	margin-bottom: 5%;
+}
+
 .sf-menu ul{
 	display: block !important;
 }
@@ -48,6 +52,27 @@
 	right: 0;
 }
 
+.form-coneckta-c{
+	border: solid 1px #EEEEEE;
+	padding: 3%;
+}
+
+/*.form-row{
+	width: 50%;
+	margin-left: 10%;
+	float: left;
+	margin-right: 40%;
+}*/
+
+.form-row input{
+	width: 100%;
+	float: left;
+}
+
+.form-row span{
+	width: 100%;
+	float: left;
+}
 
 @media (min-width: 992px) {
 	.visible-mb{
