@@ -1,0 +1,164 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="parallax-slider-58e771280f371" class="parallax-slider"><ul class="baseList"><li></div>    
+                {% image '@AppBundle/Resources/public/img/prod-default.png' %}
+                {% set img_default = asset_url %}
+                {% endimage %}
+
+                {% javascripts '@AppBundle/Resources/public/template/js/custom-home.js' %}
+                <script src="{{ asset_url }}"></script>
+                {% endjavascripts %}
+                </head>
+            <body class="single single-product postid-1958 woocommerce woocommerce-page has_woocommerce has_shop olrk-live-chat">
+                <div id="" class="main-holder">
+                    <div class="motopress-wrapper content-holder clearfix woocommerce">
+                        <div class="container">
+                            <div class="row">
+                                <div class="span12" data-motopress-type="static">
+                                    <section class="title-section"></section>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span12" id="content" style="padding-top: 0 !important;">
+                                    <div itemscope id="product-1958" class="post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
+
+
+                                                {# CONEKTA #}
+
+                                            <div class="col-md-12 form-coneckta-c m-b-5">
+                                                <h1 class="text-center">Finalizar compra</h1>
+                                                <form action="{{path('payment')}}" method="POST" id="card-form" class="validate-form">
+                                                  
+                                                  <input type="hidden" name="item-price" value="{{item.price}}" />
+                                                  <input type="hidden" name="item-name" value="{{item.name}}" />
+
+                                                  <div class="col-md-6">
+                                                        <div class="form-row">
+                                                            <label>
+                                                              <span>Correo electrónico</span>
+                                                              <input type="email" data-rule-required="true" data-msg-required="Porfavor, llene este campo" data-msg-email="Porfavor, ingrese una dirección de email válido" data-rule-email="true"  name="user-mail" />
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <label>
+                                                              <span>Número telefónico</span>  
+                                                              <input type="text"  data-rule-required="true" data-msg-required="Porfavor, llene este campo" data-rule-rangelength="12,14" data-msg-rangelength="Pofavor, ingrese un número telefónico válido con clave lada (Ejemplo: MEX +52 , USA: +1)" name="user-phone" required="required" />
+                                                            </label>
+                                                        </div>
+                                                  </div>
+
+                                                  <div class="col-md-6">
+                                                    <div class="form-row">
+                                                        <span style="color: red;" class="card-errors"></span>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label>
+                                                          <span>Nombre del tarjetahabiente</span>
+                                                          <input type="text" size="20" name="card-name" data-conekta="card[name]"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label>
+                                                          <span>Número de tarjeta de crédito</span>
+                                                          <input type="text" size="20" data-conekta="card[number]"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label>
+                                                          <span>CVC</span>
+                                                          <input type="text" size="4" data-conekta="card[cvc]"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <label>
+                                                          <span>Fecha de expiración</span>
+                                                          <span>(MM)</span>
+                                                          <input type="text" size="2" data-conekta="card[exp_month]"/>
+                                                        </label>
+                                                        <span>(AAAA)</span>
+                                                        <input type="text" size="4" data-conekta="card[exp_year]"/>
+                                                    </div>
+
+
+                                                        <div class="col-md-12">
+                                                            <h2>Orden Total</h2>
+                                                            <table class="table">
+                                                                <tr>
+                                                                    <th colspan="2">PRODUCTO</th>
+                                                                    <th>CANTIDAD</th>
+                                                                    <th>SUBTOTAL</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2">{{item.name}}</td>
+                                                                    <td>1</td>
+                                                                    <td>{{item.price}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="3" class="text-center">Subtotal</td>
+                                                                    <td>{{item.price}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="3" class="text-center">Envio</td>
+                                                                    <td>0</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="3" class="text-center"><strong>TOTAL:</strong></td>
+                                                                    <td><strong>{{item.price}}</strong></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+
+
+                                                  </div>
+                                                  
+                                                  
+                                                  <div class="col-md-12 m-t-5 text-center">
+
+                                                    <button type="submit" class="btn-primary btn-conekta">¡Pagar ahora!</button>
+                                                  </div>
+                                                    <div class="loading-c">
+                                                        <div class="spinner">
+                                                            <div class="rect1"></div>
+                                                            <div class="rect2"></div>
+                                                            <div class="rect3"></div>
+                                                            <div class="rect4"></div>
+                                                            <div class="rect5"></div>
+                                                        </div>
+                                                        <p class="text-wait">Estamos procesando el pago, porfavor espere...</p>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="clear"></div>
+                                        
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {# FIN DEL BODY #}
+                    {% endblock %}
+                    {% block footer %}
+                        {% if item.featured == false %}
+                             {% include 'AppBundle:layout:footer2.html.twig' %}
+                        {% else %}
+                            {{parent()}}
+                        {% endif %}
+
+                    {% endblock %}
+                    {% block header %}
+                        {% if item.featured == false %}
+                            {% include 'AppBundle:layout:header2.html.twig' %}
+                        {% else %}
+                            {{parent()}}
+                        {% endif %}
+                    {% endblock %}
+
+                    {% block title %}
+                        {% if item.featured == false %}
+                            Geopositioning Services
+                        {% else %}
+                            {{parent()}}
+                        {% endif %}
+                    {% endblock %}

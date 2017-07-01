@@ -96,6 +96,20 @@ class DefaultController extends Controller {
     }
 
     /**
+     * @Route("/payment", name="resumen")
+     * @Method({"POST"})
+     * @Template("AppBundle:payment:index.html.twig")
+     */
+    public function resumenAction(Request $request) {
+        if ($request->isMethod('post')) {
+            $id = $request->get('itemId');
+            $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+            $item = $repository->findOneBy(array('id' => $id));
+            return array('item' => $item);
+        }
+    }
+
+    /**
      * @Route("/payment-test", name="payment")
      * @Method({"POST"})
      */

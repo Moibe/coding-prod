@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+  initForms();
+
     function runEffect() {
       // get effect type from
       var selectedEffect = "blind";
@@ -25,4 +28,23 @@ $(document).ready(function () {
     $(document).on('click', '.menu-mb-c li', function () {      
       $( "#effect" ).toggle(500);    
     });
+
+    function initForms() {
+      $(".validate-form").each(function () {
+          $(this).validate({
+              submitHandler: function (form) {
+                  $('.loading-c').show();
+                  $('.btn-conekta').text('Enviando...');
+                  var options = {
+                      success: function (data) {
+                          $('.loading-c').hide();
+                          $(".validate-form").find("input").val("");
+                      }
+                  };
+                  $(form).ajaxSubmit(options);
+              }
+          });
+      });
+    }
+
 });

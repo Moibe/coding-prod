@@ -39,6 +39,12 @@
         {% endjavascripts %} 
 
         {% javascripts 
+            '@AppBundle/Resources/public/js/jquery.form.min.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts 
                         '@AppBundle/Resources/public/template/js/footer/device.min.js'
         %}
         <script src="{{ asset_url }}"></script>
@@ -107,6 +113,12 @@
 
         {% javascripts 
             '@AppBundle/Resources/public/js/conekta.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts 
+            '@AppBundle/Resources/public/js/jquery.validate.js'
         %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
