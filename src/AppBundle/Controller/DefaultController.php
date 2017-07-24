@@ -25,6 +25,22 @@ class DefaultController extends Controller {
         return array('cat' => $result, 'prod' => $pr);
     }
 
+    
+    
+    
+    /**
+     * @Route("/return/{product}", name="return_url")
+     */
+    public function returnAction(Request $request,$product) {
+        $redirect = $this->generateUrl('homepage');
+        
+        if(!$product->getFeatured()){
+            $redirect = "https://geopositioningservices.com";
+        }
+        
+        return $this->redirect($redirect);
+    }
+    
     /**
      * @Route("/checkout", name="producto")
      * @Method({"POST"})
