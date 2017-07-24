@@ -27,9 +27,13 @@ class DefaultController extends Controller {
      * @Route("/return/{product}", name="return_url")
      */
     public function returnAction(Request $request, $product) {
+
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+        $item = $repository->findOneBy(array('id' => $product));
+
         $redirect = $this->generateUrl('homepage');
 
-        if (!$product->getFeatured()) {
+        if (!$item->getFeatured()) {
             $redirect = "https://geopositioningservices.com";
         }
 
@@ -136,15 +140,15 @@ class DefaultController extends Controller {
         \Conekta\Conekta::setApiKey($apiEnvKey);
 
         $validOrder = array(
-                    'line_items' => array(
-                        array(
-                            'name' => $request->get('item-name'),
-                            'description' => $request->get('item-name') . ' by Coding Depot',
-                            'unit_price' => $itemPrice,
-                            'quantity' => 1,
-                        )
-                    ),
-                    'currency' => 'mxn',
+            'line_items' => array(
+                array(
+                    'name' => $request->get('item-name'),
+                    'description' => $request->get('item-name') . ' by Coding Depot',
+                    'unit_price' => $itemPrice,
+                    'quantity' => 1,
+                )
+            ),
+            'currency' => 'mxn',
         );
 
         $charges = array(
