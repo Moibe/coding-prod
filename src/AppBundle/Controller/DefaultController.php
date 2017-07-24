@@ -7,8 +7,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-
-
 use Artesanus\ConektaBundle\ConektaInterface;
 
 class DefaultController extends Controller {
@@ -25,22 +23,19 @@ class DefaultController extends Controller {
         return array('cat' => $result, 'prod' => $pr);
     }
 
-    
-    
-    
     /**
      * @Route("/return/{product}", name="return_url")
      */
-    public function returnAction(Request $request,$product) {
+    public function returnAction(Request $request, $product) {
         $redirect = $this->generateUrl('homepage');
-        
-        if(!$product->getFeatured()){
+
+        if (!$product->getFeatured()) {
             $redirect = "https://geopositioningservices.com";
         }
-        
+
         return $this->redirect($redirect);
     }
-    
+
     /**
      * @Route("/checkout", name="producto")
      * @Method({"POST"})
@@ -107,7 +102,7 @@ class DefaultController extends Controller {
      */
     public function allAction() {
         $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
-        $result = $repository->findAll();
+        $result = $repository->findBy(array('featured' => true));
         return array('prod' => $result);
     }
 
@@ -131,62 +126,60 @@ class DefaultController extends Controller {
      */
     public function paymentAction(Request $request) {
 
-    $itemPrice = $request->get('item-price') * 100;
+        $itemPrice = $request->get('item-price') * 100;
 
-    $apiEnvKey = getenv('CONEKTA_API');
-    if (!$apiEnvKey) {
-        // CAMBIAR POR LA LLAVE PRIVADA DE PRODUCCIÓN
-      $apiEnvKey = 'key_93HD4i8jEdq4yA66xtdLXQ';
-    }
-    \Conekta\Conekta::setApiKey($apiEnvKey);
+        $apiEnvKey = getenv('CONEKTA_API');
+        if (!$apiEnvKey) {
+            // CAMBIAR POR LA LLAVE PRIVADA DE PRODUCCIÓN
+            $apiEnvKey = 'key_93HD4i8jEdq4yA66xtdLXQ';
+        }
+        \Conekta\Conekta::setApiKey($apiEnvKey);
 
-     $validOrder =
-  array(
-    'line_items'=> array(
-      array(
-        'name'=> $request->get('item-name'),
-        'description'=> $request->get('item-name').' by Coding Depot',
-        'unit_price'=> $itemPrice,
-        'quantity'=> 1,
-        )
-      ),
-    'currency' => 'mxn',
-    );
+        $validOrder = array(
+                    'line_items' => array(
+                        array(
+                            'name' => $request->get('item-name'),
+                            'description' => $request->get('item-name') . ' by Coding Depot',
+                            'unit_price' => $itemPrice,
+                            'quantity' => 1,
+                        )
+                    ),
+                    'currency' => 'mxn',
+        );
 
-    $charges = array(
-      'charges' => array(
-        array(
-          'payment_method' => array(
-            'type' => 'card',
-            'token_id'=> $request->get('conektaTokenId')
+        $charges = array(
+            'charges' => array(
+                array(
+                    'payment_method' => array(
+                        'type' => 'card',
+                        'token_id' => $request->get('conektaTokenId')
+                    ),
+                    // MODIFICAR POR EL TOTAL DEL CARRITO DE COMPRAS
+                    'amount' => $itemPrice
+                )
             ),
-            // MODIFICAR POR EL TOTAL DEL CARRITO DE COMPRAS
-          'amount' => $itemPrice
-          )
-        ),
-      'currency'    => 'mxn',
-      'customer_info' => array(
-        'name' => $request->get('card-name'),
-        'phone' => $request->get('user-phone'),
-        'email' => $request->get('user-mail')
-        )
-      );
+            'currency' => 'mxn',
+            'customer_info' => array(
+                'name' => $request->get('card-name'),
+                'phone' => $request->get('user-phone'),
+                'email' => $request->get('user-mail')
+            )
+        );
 
-    $order = \Conekta\Order::create(array_merge($validOrder, $charges));
+        $order = \Conekta\Order::create(array_merge($validOrder, $charges));
 
         // COMPRA EXITOSA
-    if ($order->payment_status == "paid") {
+        if ($order->payment_status == "paid") {
 
-        $session = $this->get('session');
-        $id = $session->get('item');
+            $session = $this->get('session');
+            $id = $session->get('item');
 
-        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
-        $result = $repository->findOneBy(array('id' => $id));
+            $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+            $result = $repository->findOneBy(array('id' => $id));
 
-        return $this->render('AppBundle:success:index.html.twig', array('item' => $result));
+            return $this->render('AppBundle:success:index.html.twig', array('item' => $result));
+        }
     }
 
-} //FIN PAYMENT METHOD
-
-
+//FIN PAYMENT METHOD
 }
