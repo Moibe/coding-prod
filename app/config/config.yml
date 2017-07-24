@@ -8,6 +8,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    merchant_id: 4JE5DX52R7CZJ
 
 framework:
     #esi: ~
@@ -39,6 +40,7 @@ twig:
     globals:
         redirect_url: "%redirect_url%"
         payment_method: paypal
+        merchant_id: "%merchant_id%"
 # Doctrine Configuration
 doctrine:
     dbal:
