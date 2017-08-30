@@ -34,7 +34,7 @@ class DefaultController extends Controller {
         $redirect = $this->generateUrl('homepage');
 
         if (!$item->getFeatured()) {
-            $redirect = "https://geopositioningservices.com";
+            $redirect = "https://www.geopositioningservices.com";
         }
 
         return $this->redirect($redirect);
