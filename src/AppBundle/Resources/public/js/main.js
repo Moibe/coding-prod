@@ -1,5 +1,16 @@
 $(document).ready(function () {
 
+  $('form').card({
+    container: '.card-wrapper',
+    width: 280,
+
+    formSelectors: {
+        nameInput: 'input[name="card-name"]',
+        numberInput:'input#number',
+        expiryInput: 'input#month , input#year'
+    }
+});
+
   initForms();
 
     function runEffect() {
@@ -46,5 +57,6 @@ $(document).ready(function () {
           });
       });
     }
+
 
 });

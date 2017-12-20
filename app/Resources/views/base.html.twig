@@ -31,6 +31,7 @@
     {% endblock %}
     {% block javascripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.3.2/js/conekta.js"></script>
         {% javascripts '@AppBundle/Resources/public/bootstrap/js/bootstrap.js'
             '@AppBundle/Resources/public/bootstrap/js/bootstrap.min.js'
@@ -122,6 +123,8 @@
         %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/121761/card.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/121761/jquery.card.js"></script>
     {% endblock %}
 </body>
 </html>

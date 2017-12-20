@@ -22,10 +22,37 @@
                                 <div class="span12" id="content" style="padding-top: 0 !important;">
                                     <div itemscope id="product-1958" class="post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
 
+                                        <div class="col-md-8 col-md-offset-2 form-container-js">
+                                             <div class="body-text">
+                                                  <form action="{{path('payment')}}" method="POST" id="card-form" class="validate-form">
+                                                    <div class="form-container">
+                                                      <div class="personal-information">
+                                                        <h1>Finalizar compra</h1>
+                                                      </div>
+                                                      
+                                                      
+                                                      <input class="input-field" type="email" data-rule-required="true" placeholder="Correo electrónico" data-msg-required="Porfavor, llene este campo" data-msg-email="Porfavor, ingrese una dirección de email válido" data-rule-email="true"  name="user-mail" />
+                                                      
+                                                      <input class="input-field" placeholder="Número telefónico" type="text"  data-rule-required="true" data-msg-required="Porfavor, llene este campo" data-rule-rangelength="12,14" data-msg-rangelength="Pofavor, ingrese un número telefónico válido con clave lada (Ejemplo: MEX +52 , USA: +1)" name="user-phone" required="required" />
+                                                    
+                                                        <div class="card-wrapper"></div>
+                                                          <input class="input-field" placeholder="Nombre del tarjetahabiente" type="text" size="20" name="card-name" data-conekta="card[name]"/>
+
+                                                          
+                                                          <input class="input-field" placeholder="Número de la tarjeta" type="text" size="20" id="number" data-conekta="card[number]"/>
+                                                          
+                                                          <input class="column-left" type="text" id="month"  placeholder="MM "/>
+                                                          <input class="column-left" type="text" id="year"  placeholder=" YY"/>
+                                                          {# <input class="column-right" type="text" name="cvc" placeholder="CCV"/> #}
+                                                          <input id="input-button" type="submit" value="Submit"/>
+                                                  </form>
+                                            </div>
+                                        </div>
+
 
                                                 {# CONEKTA #}
 
-                                            <div class="col-md-12 form-coneckta-c m-b-5">
+                                            {# <div class="col-md-12 form-coneckta-c m-b-5">
                                                 <h1 class="text-center">Finalizar compra</h1>
                                                 <form action="{{path('payment')}}" method="POST" id="card-form" class="validate-form">
                                                   
@@ -127,7 +154,7 @@
                                                         <p class="text-wait">Estamos procesando el pago, porfavor espere...</p>
                                                     </div>
                                                 </form>
-                                            </div>
+                                            </div> #}
 
                                             <div class="clear"></div>
                                         
