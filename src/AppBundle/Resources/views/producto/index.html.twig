@@ -44,7 +44,7 @@
                                                     <span class="amount">{{item.priceFormated}}</span>
                                                 </p>
                                             </div>
-                                            {% if payment_method == "paypal" %}
+                                            {% if item.payment_method == "paypal" %}
                                                 {# PAYPAL #}
                                                 <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
                                                     data-button="buynow"
@@ -60,7 +60,7 @@
                                                     data-type="form"
                                                     async>
                                                 </script>
-                                            {% elseif payment_method == "conekta" %}
+                                            {% elseif item.payment_method == "conekta" %}
 
                                             <div class="col-md-12 m-t-5">
                                                 <div class="row">

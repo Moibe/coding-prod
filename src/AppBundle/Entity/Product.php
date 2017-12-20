@@ -58,6 +58,13 @@ class Product {
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="payment_type", type="string", length=20,nullable=false)
+     */
+    private $payment_type;
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products", cascade={"persist"})
@@ -344,5 +351,29 @@ class Product {
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set paymentType
+     *
+     * @param string $paymentType
+     *
+     * @return Product
+     */
+    public function setPaymentType($paymentType)
+    {
+        $this->payment_type = $paymentType;
+
+        return $this;
+    }
+
+    /**
+     * Get paymentType
+     *
+     * @return string
+     */
+    public function getPaymentType()
+    {
+        return $this->payment_type;
     }
 }

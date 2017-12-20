@@ -39,7 +39,6 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         redirect_url: "%redirect_url%"
-        payment_method: paypal
         merchant_id: "%merchant_id%"
 # Doctrine Configuration
 doctrine:
@@ -81,13 +80,20 @@ assetic:
         cssrewrite: ~
 
 easy_admin:
+    site_name: Coding Depot
     design:
       assets:
         js: ['https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js', '/bundles/app/js/customadmin.js']
     entities:
-        - AppBundle\Entity\Product
-        - AppBundle\Entity\Category
-        - AppBundle\Entity\Currency        
+        Product:
+            label: Producto
+            class: AppBundle\Entity\Product
+        Category:
+            class: AppBundle\Entity\Category
+            label: Categoría
+        Currency:
+            class: AppBundle\Entity\Currency   
+            label: Currency
 
 vlabs_media:
     image_cache:
@@ -98,5 +104,5 @@ vlabs_media:
           
 jms_i18n_routing:
     default_locale: es
-    locales: [es,de,en,fr,it,nl,pt,eu,asia,in,uk,ar]
+    locales: [es,de,en,fr,it,nl,pt,eu,asia,in,uk,ar,es_MX]
     strategy: prefix      

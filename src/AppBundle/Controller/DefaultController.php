@@ -104,9 +104,9 @@ class DefaultController extends Controller {
      * @Route("/todos-los-productos", name="all")
      * @Template("AppBundle:all:index.html.twig")
      */
-    public function allAction() {
+    public function allAction(Request $request) {
         $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
-        $result = $repository->findBy(array('featured' => true));
+        $result = $repository->findBy(array('featured' => true,'locale' => $request->getLocale()));
         return array('prod' => $result);
     }
 
