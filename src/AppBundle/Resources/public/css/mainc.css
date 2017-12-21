@@ -80,14 +80,18 @@
   width: 100%;
 }
 .form-container-js .personal-information {
-  background-color: #FF5542;
-  color: #fff;
+  background-color: #1F1F1F;
+  color: #FF5542;
   padding: 1px 0px;
   text-align: center;
 }
 .form-container-js h1 {
   font-size: 1.3em;
-  color: #fff;
+  color: #FF5542;
+}
+
+.form-container-js .error{
+  color: #FF5542;
 }
 .form-container-js input {
   margin: 1px 0px;
@@ -136,6 +140,11 @@
 .form-container-js .column-right {
   width: 50% !important;
   float: right;
+}
+
+.form-container-js .column-3 {
+  width: 33.333333% !important;  
+  float: left;
 }
 
 @media only screen and (max-width: 480px){

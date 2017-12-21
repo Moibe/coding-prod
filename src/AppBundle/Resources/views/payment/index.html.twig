@@ -25,11 +25,40 @@
                                         <div class="col-md-8 col-md-offset-2 form-container-js">
                                              <div class="body-text">
                                                   <form action="{{path('payment')}}" method="POST" id="card-form" class="validate-form">
+                                                    <input type="hidden" name="item-price" value="{{item.price}}" />
+                                                    <input type="hidden" name="item-name" value="{{item.name}}" />
                                                     <div class="form-container">
                                                       <div class="personal-information">
                                                         <h1>Finalizar compra</h1>
                                                       </div>
-                                                      
+                                                      <div class="col-md-12 orange">
+                                                            <h2>Orden Total</h2>
+                                                            <table class="table">
+                                                                <tr>
+                                                                    <th colspan="2">PRODUCTO</th>
+                                                                    <th>CANTIDAD</th>
+                                                                    <th>SUBTOTAL</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2">{{item.name}}</td>
+                                                                    <td>1</td>
+                                                                    <td>{{item.price}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="3" class="text-center">Subtotal</td>
+                                                                    <td>{{item.price}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="3" class="text-center">Envio</td>
+                                                                    <td>0</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="3" class="text-center"><strong>TOTAL:</strong></td>
+                                                                    <td><strong>{{item.price}}</strong></td>
+                                                                </tr>
+                                                            </table>
+                                                            <span style="color: red;" class="card-errors"></span>
+                                                        </div>
                                                       
                                                       <input class="input-field" type="email" data-rule-required="true" placeholder="Correo electrónico" data-msg-required="Porfavor, llene este campo" data-msg-email="Porfavor, ingrese una dirección de email válido" data-rule-email="true"  name="user-mail" />
                                                       
@@ -41,11 +70,23 @@
                                                           
                                                           <input class="input-field" placeholder="Número de la tarjeta" type="text" size="20" id="number" data-conekta="card[number]"/>
                                                           
-                                                          <input class="column-left" type="text" id="month"  placeholder="MM "/>
-                                                          <input class="column-left" type="text" id="year"  placeholder=" YY"/>
-                                                          {# <input class="column-right" type="text" name="cvc" placeholder="CCV"/> #}
-                                                          <input id="input-button" type="submit" value="Submit"/>
+                                                          <input class="column-3" placeholder="MM" id="month" type="text" size="2" data-conekta="card[exp_month]"/>
+
+                                                          <input class="column-3" id="year"  placeholder=" YY" type="text" size="4" data-conekta="card[exp_year]"/>
+                                                          
+                                                          <input class="column-3" type="text" id="ccv" size="4" placeholder="CVC" data-conekta="card[cvc]"/>
+                                                          <input id="input-button" class="btn-conekta" type="submit" value="¡Pagar ahora!"/>
                                                   </form>
+                                                  <div class="loading-c">
+                                                        <div class="spinner">
+                                                            <div class="rect1"></div>
+                                                            <div class="rect2"></div>
+                                                            <div class="rect3"></div>
+                                                            <div class="rect4"></div>
+                                                            <div class="rect5"></div>
+                                                        </div>
+                                                        <p class="text-wait">Estamos procesando el pago, porfavor espere...</p>
+                                                    </div>
                                             </div>
                                         </div>
 

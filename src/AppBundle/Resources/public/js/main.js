@@ -7,7 +7,8 @@ $(document).ready(function () {
     formSelectors: {
         nameInput: 'input[name="card-name"]',
         numberInput:'input#number',
-        expiryInput: 'input#month , input#year'
+        expiryInput: 'input#month , input#year',
+        cvcInput: 'input#ccv'
     }
 });
 
