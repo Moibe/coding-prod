@@ -75,7 +75,7 @@
   width: 100%;
 }
 .form-container-js .card-wrapper {
-  background-color: #6FB7E9;
+  background-color: #1F1F1F;
   padding: 10px 0px;
   width: 100%;
 }
@@ -96,11 +96,8 @@
 .form-container-js input {
   margin: 1px 0px;
   padding-left: 3%;
-  border-top: solid 2px rgba(255,85,66,0.3) !important;
-  border-left: solid 2px rgba(255,85,66,0.3) !important;
-  border-right: solid 2px rgba(255,85,66,0.3) !important;
-  border-bottom: none !important;
-  margin-bottom: 0 !important;
+  border: solid 2px rgba(255,85,66,0.3) !important;
+  margin-bottom: 5px !important;
 }
 .form-container-js input[type="text"]{
   display: block;
@@ -142,9 +139,14 @@
   float: right;
 }
 
-.form-container-js .column-3 {
-  width: 33.333333% !important;  
+.form-container-js .column-3{
+  width: 32.8% !important;  
   float: left;
+  margin-left: 5px;
+}
+
+.form-container-js .ml-0{
+	margin-left: 0 !important;
 }
 
 @media only screen and (max-width: 480px){
@@ -184,6 +186,9 @@
   }
   .form-container-js #input-button {
     width: 100%;
+  }
+  .form-container-js .column-3{
+  	width: 32.2% !important;
   }
 }
 /*FIN FORMULARIO CONEKTA*/

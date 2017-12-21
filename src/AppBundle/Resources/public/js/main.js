@@ -9,6 +9,9 @@ $(document).ready(function () {
         numberInput:'input#number',
         expiryInput: 'input#month , input#year',
         cvcInput: 'input#ccv'
+    },
+    placeholders: {
+        name: 'Nombre Completo'
     }
 });
 
