@@ -1,4 +1,4 @@
-  Conekta.setPublishableKey('key_I69Va9x1Uy4eMTMA5FsByVw');
+  Conekta.setPublishableKey('key_Zf9TKz7DfxbqU3JwXFc2hRQ');
 
   $(function () {
   // jQuery(function($){

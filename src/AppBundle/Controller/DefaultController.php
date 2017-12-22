@@ -135,7 +135,7 @@ class DefaultController extends Controller {
         $apiEnvKey = getenv('CONEKTA_API');
         if (!$apiEnvKey) {
             // CAMBIAR POR LA LLAVE PRIVADA DE PRODUCCIÓN
-            $apiEnvKey = 'key_93HD4i8jEdq4yA66xtdLXQ';
+            $apiEnvKey = 'key_pfSCsyaS4KDDsbxxZyNSiw';
         }
         \Conekta\Conekta::setApiKey($apiEnvKey);
 
