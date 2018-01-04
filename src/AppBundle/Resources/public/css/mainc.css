@@ -80,14 +80,14 @@
   width: 100%;
 }
 .form-container-js .personal-information {
-  background-color: #1F1F1F;
-  color: #FF5542;
+  background-color: #FF5542;
+  color: #1F1F1F;
   padding: 1px 0px;
   text-align: center;
 }
 .form-container-js h1 {
   font-size: 1.3em;
-  color: #FF5542;
+  color: #fff;
 }
 
 .form-container-js .error{
