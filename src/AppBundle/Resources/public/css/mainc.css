@@ -10,6 +10,10 @@
 	color: #FF5542;
 }
 
+.deep{
+  color: #286090;
+}
+
 .img-center{
 	margin: auto;
 }
@@ -58,7 +62,9 @@
 
 /*FORMULARIO CONEKTA*/
 
-
+.btn-conekta{
+  background-color: #286090 !important;
+}
 /*body {
   padding: 60px 0px;
   background-color: #B2D1E5;
@@ -80,7 +86,7 @@
   width: 100%;
 }
 .form-container-js .personal-information {
-  background-color: #FF5542;
+  background-color: #286090;
   color: #1F1F1F;
   padding: 1px 0px;
   text-align: center;
@@ -96,7 +102,7 @@
 .form-container-js input {
   margin: 1px 0px;
   padding-left: 3%;
-  border: solid 2px rgba(255,85,66,0.3) !important;
+  border: solid 2px #286090 !important;
   margin-bottom: 5px !important;
 }
 .form-container-js input[type="text"]{
