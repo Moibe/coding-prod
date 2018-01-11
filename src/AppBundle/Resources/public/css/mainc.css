@@ -65,6 +65,18 @@
 .btn-conekta{
   background-color: #286090 !important;
 }
+
+.logo-conekta{
+  background-image: url('https://s3.amazonaws.com/conekta.static/business/_layout/conekta_logo.svg');
+  width: 90px;
+  height: 25px;
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-bottom: 0;
+  cursor: auto;
+}
 /*body {
   padding: 60px 0px;
   background-color: #B2D1E5;
