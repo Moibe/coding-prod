@@ -143,7 +143,7 @@ class DefaultController extends Controller {
             'line_items' => array(
                 array(
                     'name' => $request->get('item-name'),
-                    'description' => $request->get('item-name') . ' by Coding Depot',
+                    'description' => 'Coding Service',
                     'unit_price' => $itemPrice,
                     'quantity' => 1,
                 )
