@@ -142,7 +142,7 @@ class DefaultController extends Controller {
         $validOrder = array(
             'line_items' => array(
                 array(
-                    'name' => $request->get('item-name'),
+                    'name' => 'Coding Service',
                     'description' => 'Coding Service',
                     'unit_price' => $itemPrice,
                     'quantity' => 1,
