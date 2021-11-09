@@ -6,14 +6,51 @@
                 <div id="" class="main-holder">
                     <div class="motopress-wrapper content-holder clearfix woocommerce">
                         <div class="container container-m-h">
+                            <h1 class='text-center'>Términos y Condiciones.</h1>
+                            <h2>Introducción.</h2>
+                            <p>Software Homework es una tienda en línea que vende paquetes de código para crear pequeñas aplicaciones y proyectos, principalmente para resolver tareas de preparatoria y universidad. El comprador recibe un paquete que contiene el código fuente y una explicación para implementarlo. </p>
 
-                            <h1 class="text-center">{% trans %}Como Funciona{% endtrans %}</h1>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan varius dui quis porta. Maecenas mi neque, consectetur nec ligula sit amet, pellentesque condimentum ligula. Phasellus semper molestie purus non blandit. Pellentesque sollicitudin, leo a vehicula efficitur, augue erat posuere dui, ultricies posuere urna tortor faucibus est. Ut tempor metus ut mattis tempus. Fusce a erat est. Duis nec neque ac nunc sollicitudin pulvinar. Maecenas vitae rhoncus sapien, quis pharetra tortor.</p>
+                            <h2>Derecho de Autor</h2>
+                            <p>Todos los diseños, imágenes, demos y código fueron elaborados y son propiedad del sitio. El código que el comprador adquiere fue diseñado por el sitio para su venta, al comprarlo le otorgamos todos los derechos para su uso en proyectos personales, educativos o comerciales. Ésta prohibida la reventa del código que le ofrecemos, pero su uso es totalmente libre.</p>
 
-                            <p>Aenean pharetra magna a posuere accumsan. Aliquam non lorem odio. Integer at nisi mauris. Etiam bibendum iaculis nibh, at rutrum nulla luctus consectetur. Proin tincidunt enim nibh, quis lacinia nulla tincidunt nec. Donec vulputate nec felis et vestibulum. Vestibulum ornare tellus feugiat lorem pharetra dictum. Integer at dolor nibh. Vivamus dignissim elementum lacus ac congue. In sodales, metus non consequat vestibulum, diam sapien scelerisque tellus, nec porttitor risus ipsum id lacus. Praesent sagittis ultricies mauris non tempor.</p>
+                            <h2>Privacidad.</h2>
+                            <p>No almacenamos información alguna sobre el usuario o sobre su información de pago. Por eso la venta de código es directa (sin carrito de compra), no requieres crear ningún usuario.</p>
+                            <p>Los pagos son procesados por Paypal y no compartimos absolutamente ninguna información con terceros.</p>
 
-                            <p>Pellentesque id urna eu nulla dignissim ultrices ut vel quam. Sed nisl libero, dapibus sit amet semper ac, iaculis vitae nunc. Mauris condimentum suscipit lacus, eget semper velit ultrices sed. Vivamus eu nisi nulla. Phasellus leo lorem, mattis in neque quis, eleifend euismod tellus. Maecenas ultrices porta metus at vehicula. In posuere quam at quam lacinia scelerisque. Praesent venenatis luctus urna at volutpat.</p>
+                            <h2>Seguridad</h2>
+                            <p>El sitio está montado sobre https para una conexión segura y así poder proporcionar a los usuarios la garantía de que la información transmitida desde y hacia el sitio viaja de forma encriptada.</p>
+                            <p>Asimismo, los procesadores de pago utilizados están verificados y tienen conexiones seguras. La información de su tarjeta no es guardada por el sitio bajo ninguna circunstancia.</p>
 
-                            <p>Curabitur volutpat ante ac nulla mollis sodales non sed tortor. Vestibulum hendrerit ipsum at felis tempus faucibus. In felis nisi, gravida et urna sed, sagittis ullamcorper tortor. In vel eleifend quam. Vivamus bibendum molestie rhoncus. Proin faucibus tortor eu lorem ultrices mollis. Phasellus sed nisl eu eros blandit accumsan at non tortor. Duis id nisi velit. Maecenas bibendum maximus porttitor. Aliquam efficitur mi in nisi sagittis, vitae iaculis magna placerat. Pellentesque dictum nisi eu congue ultrices. Nullam viverra, metus et finibus eleifend, quam est aliquet ante, ut dictum tortor nibh et eros. Aliquam erat volutpat. Suspendisse rutrum venenatis ex quis lobortis. Donec ornare nisi id leo varius condimentum.</p>
+                            <h2>Devoluciones, Cancelaciones y Reembolsos.</h2>
+                            <p>Tienes el derecho a pedir un reembolso del 100% del producto si éste no satisface tus expectativas. Cuentas hasta con 90 días hábiles para hacerlo. El sitio hará esa devolución en un periodo no mayor a 48 horas.</p>
+                            <p>Asimismo, en caso de pedir un reembolso, el comprador queda entendido que no podrá usar el código previamente comprado y deberá borrarlo, queda prohibido después de eso cualquier forma de uso. </p>
+                            <p>Esperamos de buena fe este comportamiento por parte del usuario que ha pedido un reembolso ya que en realidad no estamos estableciendo ninguna restricción sobre el archivo. Nuestro principal objetivo es poder llegar a toda la comunidad de entusiastas nuevos de la programación por lo que reembolsaremos a todo cliente que no le satisfaga totalmente nuestro producto y asimismo esperamos que el cliente actuará de buena fe. </p>
+
+                            <h2>Soporte.</h2>
+                            <p>Para soporte las 24 horas sobre pagos y reembolsos por favor escribe a support@softwarehomework.com, recibirás respuesta en menos de 48 horas. </p>
+                            <p>El soporte está limitado para compras en el sitio, no abarca la implementación de proyectos. Como cliente aceptas que tú eres quien debe implementar el código en tu propio ambiente de producción. Sin embargo, siempre te podemos asesorar con gusto en test@softwarehomework.com de forma limitada. </p>
                         </div>
-                    {% endblock %}                    
+                    {% endblock %}
+                    {# {% block footer %}
+                        {% if item.featured == false %}
+                            {% include 'AppBundle:layout:footer2.html.twig' %}
+                        {% else %}
+                            {{parent()}}
+                        {% endif %}
+
+                    {% endblock %}
+                    {% block header %}
+                        {% if item.featured == false %}
+                            {% include 'AppBundle:layout:header2.html.twig' %}
+                        {% else %}
+                            {{parent()}}
+                        {% endif %}
+                    {% endblock %}
+
+                    {% block title %}
+                        {% if item.featured == false %}
+                            Geopositioning Services
+                        {% else %}
+                            {{parent()}}
+                        {% endif %}
+                    {% endblock %} #}           

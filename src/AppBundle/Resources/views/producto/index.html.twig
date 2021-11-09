@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+
     <div id="parallax-slider-58e771280f371" class="parallax-slider"><ul class="baseList"><li></div>    
                 {% image '@AppBundle/Resources/public/img/prod-default.png' %}
                 {% set img_default = asset_url %}
@@ -9,7 +10,10 @@
                 <script src="{{ asset_url }}"></script>
                 {% endjavascripts %}
                 </head>
+          
             <body class="single single-product postid-1958 woocommerce woocommerce-page has_woocommerce has_shop olrk-live-chat">
+
+
                 <div id="" class="main-holder">
                     <div class="motopress-wrapper content-holder clearfix woocommerce">
                         <div class="container">
@@ -20,12 +24,22 @@
                             </div>
                             <div class="row">
                                 <div class="span12" id="content" style="padding-top: 0 !important;">
-                                    <div itemscope id="product-1958" class="post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
+    <div itemscope id="product-1958" class="post-1958 product type-product status-publish has-post-thumbnail product_cat-cpus product_cat-motherboards product_tag-branding product_tag-consulting product_tag-customer-service product_tag-ethics shipping-taxable purchasable product-type-simple product-cat-cpus product-cat-motherboards product-tag-branding product-tag-consulting product-tag-customer-service product-tag-ethics instock">
+                                        
+                                        
+                                        <div><center>{{error.codigo_error}}</center></div>
+                                                                                
                                         <div class="product-images">
+                                         
                                             <div class="product-large-image">
+                            
+                                           
                                                 {% if item.featured == false %}
                                                     {% image '@AppBundle/Resources/public/img/preview.jpg' %}
-                                                    <div class="p-item-img" style="background-image: url({{ asset_url }});"></div>
+                                                    <div class="p-item-img" style="background-image: url({{ asset_url }});">
+                                                    {% trans %}Tu mapa está listo.{% endtrans %}
+                                                     
+                                                    </div>
                                                     {% endimage %}
                                                 {%else %}
                                                     <div class="p-item-img" style="background-image: url({{ img_default }});"></div>
@@ -43,12 +57,17 @@
                                                 <p class="price">
                                                     <span class="amount">{{item.priceFormated}}</span>
                                                 </p>
-                                            </div>
-                                              {% if item.paymentType == "paypal" %}  
-                                                {# PAYPAL #}
+                                                </div>
+                                                <br>
+                                         
+
+                                            {% if item.paymentType == "paypal" and item.locale == "es" %} 
+                                                {# PAYPAL ESPAÑOL #}
+
+                                             <div>                                                                                                                                               
                                                 <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
                                                     data-button="buynow"
-                                                    data-name="Coding Service"
+                                                    data-name="Digital Download ES"
                                                     data-amount="{{item.price}}"
                                                     data-currency="{{item.code}}"
                                                     data-size="small"
@@ -60,17 +79,390 @@
                                                     data-type="form"
                                                     async>
                                                 </script>
-                                            {% elseif item.paymentType == "conekta" %} 
+                                              </div>
 
-                                            <div class="col-md-12 m-t-5">
-                                                <div class="row">
-                                                    <form action="{{path('resumen')}}" method="POST">
-                                                        <input type="hidden" name="itemId" value="{{item.id}}">
-                                                        <button type="submit" class="btn-primary">¡Pagar ahora!</button>
-                                                    </form>
-                                                </div>
+                                            {% elseif item.paymentType == "paypal" and item.locale == "en" and param1 == "world" %}
+                                            {# PAYPAL ENGLISH #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download US"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                            {% elseif item.paymentType == "paypal" and item.locale == "en" %}
+                                            {# PAYPAL ENGLISH #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download EN"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                            {% elseif item.paymentType == "paypal" and item.locale == "pt" %}
+                                            {# PAYPAL PORTUGUESE #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download PT"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                              {% elseif item.paymentType == "paypal" and item.locale == "de" %}
+                                            {# PAYPAL DEUTSCH #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download DE"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                              {% elseif item.paymentType == "paypal" and item.locale == "fr" %}
+                                            {# PAYPAL FRENCH #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download FR"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                            {% elseif item.paymentType == "paypal" and item.locale == "ar" %}
+                                            {# PAYPAL ARAB #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download AR"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                              {% elseif item.paymentType == "paypal" and item.locale == "nl" %}
+                                            {# PAYPAL NETHERLANDS #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download NL"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                            {% elseif item.paymentType == "paypal" and item.locale == "uk" %}
+                                            {# PAYPAL UNITED KINGDOM #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download UK"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                               {% elseif item.paymentType == "paypal" and item.locale == "it" %}
+                                            {# PAYPAL ITALIA #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download It"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                            {% elseif item.paymentType == "paypal" and item.locale == "eu" %}
+                                            {# PAYPAL EUROPE #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download EU"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                            {% elseif item.paymentType == "paypal" and item.locale == "asia" %}
+                                            {# PAYPAL ASIA #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download A"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                            {% elseif item.paymentType == "paypal" and item.locale == "ru" %}
+                                            {# PAYPAL RUSIA #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download RU"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                              <form action="https://www.coinpayments.net/index.php" method="post">
+	<input type="hidden" name="cmd" value="_pay_simple">
+	<input type="hidden" name="reset" value="1">
+	<input type="hidden" name="merchant" value="75b2c556964799d89110a8e3b848f6a2">
+	<input type="hidden" name="item_name" value="Location Services">
+	<input type="hidden" name="item_desc" value="Map Ready">
+	<input type="hidden" name="item_number" value="DE">
+	<input type="hidden" name="currency" value="USD">
+	<input type="hidden" name="amountf" value="19.00000000">
+	<input type="hidden" name="want_shipping" value="0">
+	<input type="hidden" name="success_url" value="https://coding-depot.dev/es/output-sucess">
+	<input type="hidden" name="cancel_url" value="https://coding-depot.dev/es">
+	<input type="image" src="https://www.coinpayments.net/images/pub/buynow-wide-blue.png" alt="Comprar ahora con CoinPayments.net">
+</form>
+
+                                            {% elseif item.paymentType == "paypal" and item.locale == "in" %}
+                                            {# PAYPAL INDIA #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download IN"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                            {% elseif item.paymentType == "paypal" and item.locale == "es_MX" %}
+                                            {# PAYPAL MEXICO #}
+
+                                             <div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download MX"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                                                                            
                                             </div>
 
+                                                
+                                            {% elseif item.paymentType == "conekta" and item.locale == "es_mx" %} 
+
+                                                    <p>{% trans %}Elige una forma de pago:{% endtrans %}</p>
+
+                                           
+                                                    <form action="{{path('resumen')}}" method="POST">
+                                                        <input type="hidden" name="itemId" value="{{item.id}}">
+                                                        <input type="hidden" name="tipoPago" value="tarjeta">
+                                                        <button type="submit" class="btn-primary">{% trans %}Pagar Ahora{% endtrans %}</button>
+                                                        <img src='https://www.softwarehomework.com/images/marcas.png' height="32" width="97" />
+                                                    <br>
+                                                        {% trans %}Paga con tarjeta de débito o crédito con Visa, Mastercard o American Express.{% endtrans %} 
+                                                    </form>
+
+                                                    
+
+                                                
+                                                    <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                    {#{% trans %}Paga a través de Paypal en millones de sitios web de forma segura.{% endtrans %}}#}
+                                                    </script>
+                                                    
+                                                
+                                                <form action="{{path('resumen')}}" method="POST">
+                                                        <input type="hidden" name="itemId" value="{{item.id}}">
+                                                        <input type="hidden" name="tipoPago" value="oxxo">
+                                                        <input type="hidden" name="gclid" value="{{gclid}}">
+                                                        <button type="submit" class="btn-primary">{% trans %}Generar Ficha de Pago{% endtrans %}</button>
+                                                        <img src='https://www.softwarehomework.com/oxxopay_brand.png' height="32" width="97" />
+                                                        <br>
+                                                        {% trans %}Puedes pagar rápida y comodamente en cualquier Oxxo las 24 horas del día.{% endtrans %}                                                        
+                                                    </form>
+
+                                             {% else %}
+
+                                             <p>{% trans %}Elige tu forma de pago:{% endtrans %}</p>
+
+                                            {# <div class="col-md-12 m-t-5"> #}
+                                                {# <div class="row"> #}
+                                                 {#  
+                                                    <form action="{{path('resumen')}}" method="POST">
+                                                        <input type="hidden" name="itemId" value="{{item.id}}">
+                                                        <input type="hidden" name="tipoPago" value="tarjeta">
+                                                        <button type="submit" class="btn-primary">{% trans %}Pagar Ahora{% endtrans %}</button>
+                                                        <img src='https://www.softwarehomework.com/images/marcas.png' height="32" width="97" />
+                                                        
+                                                    </form>
+
+                                                    #}
+
+<div>                                                                                                                                               
+                                                <script src="{{asset('/bundles/app/js/button.js')}}?merchant=79N7TZ5N9MQAA"
+                                                    data-button="buynow"
+                                                    data-name="Digital Download"
+                                                    data-amount="{{item.price}}"
+                                                    data-currency="{{item.code}}"
+                                                    data-size="small"
+                                                    data-noshipping= 1
+                                                    data-return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-currency_code="{{item.code|upper}}"
+                                                    data-locale="{{item.language}}"
+                                                    data-type="form"
+                                                    async>
+                                                </script>
+                                              </div>
+
+                                       
+                                                {# </div> #}
+                                            {# </div> #}
+                                                                                             
+                                           
                                             {% endif %}
                                             <div class="clear"></div>
                                         </div>

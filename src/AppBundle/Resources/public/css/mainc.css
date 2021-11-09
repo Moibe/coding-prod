@@ -60,6 +60,31 @@
 	padding: 3%;
 }
 
+.avoid-clicks{
+  display: block;
+  width: 8em;
+  height: 8em;
+  background: rgba(51,51,51,0.85);
+  position: absolute;
+  top: 1em;
+  left: 4em;
+  padding: 0.75em;
+  pointer-events: none;
+  color: whitesmoke;
+}
+
+.logo-oxxopay{
+  background-image: url('https://www.coding-depot.com/oxxopay_brand.png');
+  width: 90px;
+  height: 25px;
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-bottom: 0;
+  cursor: auto;
+}
+
 /*FORMULARIO CONEKTA*/
 
 .btn-conekta{
@@ -76,6 +101,8 @@
   background-position: bottom;
   margin-bottom: 0;
   cursor: auto;
+}
+
 }
 /*body {
   padding: 60px 0px;
@@ -137,7 +164,7 @@
   background-color: #3C8DC5;
   color: #fff;
   margin-top: 2px;
-  curson: pointer;
+  cursor: pointer;
   font-size: 0.9em;
   text-transform: uppercase;
   font-weight: bold;
@@ -371,14 +398,14 @@ body #motopress-main.main-holder .content-holder div.product button[type="submit
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(232,240,242,0.8);
+    background-color: rgba(167, 235, 59, 0.8);
 }
 
 .text-wait{
 	position: absolute;
 	top: 50%;
 	left: 35%;
-	color: black;
+	color: rgb(245, 245, 245);
 	font-weight: bold;
 }
 

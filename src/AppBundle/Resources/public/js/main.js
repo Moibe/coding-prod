@@ -11,7 +11,7 @@ $(document).ready(function () {
         cvcInput: 'input#ccv'
     },
     placeholders: {
-        name: 'Nombre Completo'
+        name: 'Nom Completo'
     }
 });
 
