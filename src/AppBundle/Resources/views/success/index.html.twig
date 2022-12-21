@@ -31,7 +31,7 @@
                                 </div>
                             {% endif %}
                             
-                            {% if item.featured == false and item.locale == "uk" %} 
+                            {% if item.featured == false and item.locale != "uk" %} 
                                 <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
