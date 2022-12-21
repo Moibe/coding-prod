@@ -31,7 +31,7 @@
                                 </div>
                             {% endif %}
                             
-                            {% if item.featured == false and item.locale == "es" %} 
+                            {% if item.featured == false and item.locale != "es" %} 
                                 <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
@@ -42,7 +42,7 @@
                             <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
-                                        location.href = "https://www.google.com";
+                                        location.href = "{item.locale}";
                                     }, 3000);
                                 </script>
                             {% endif %}
