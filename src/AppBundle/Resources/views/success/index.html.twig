@@ -30,11 +30,19 @@
                                     <p class="text-center">Cualquier pregunta sobre tu producto no dudes en escribir a support@coding-depot.com</p>
                                 </div>
                             {% endif %}
-                            {% if item.featured == false %}
+                            
+                            {% if item.featured == false and item.locale != "uk" %} 
                                 <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
                                         location.href = "{{redirect_url|replace({'{language}':item.locale})}}";
+                                    }, 3000);
+                                </script>
+                            {% elseif item.featured == false and item.locale != "uk" %} 
+                            <script type="text/javascript">
+                                    // Handler for .ready() called.
+                                    window.setTimeout(function () {
+                                        location.href = "{{redirect_url|replace({'{language}':item.featured})}}";
                                     }, 3000);
                                 </script>
                             {% endif %}
