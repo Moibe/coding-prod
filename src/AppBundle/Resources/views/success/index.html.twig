@@ -42,7 +42,7 @@
                             <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
-                                        location.href = "{{redirect_url|replace({'{language}':item.locale})}}";
+                                        location.href = "{{redirect_url|replace({'{language}':'item.locale'})}}";
                                     }, 3000);
                                 </script>
                             {% endif %}
