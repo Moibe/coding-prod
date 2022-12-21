@@ -35,14 +35,14 @@
                                 <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
-                                        location.href = "{{redirect_url|replace({'{language}':item.locale})}}";
+                                        location.href = "{redirect_url}";
                                     }, 3000);
                                 </script>
                             {% elseif item.featured == false and item.locale == "es" %} 
                             <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
-                                        location.href = "{'https://www.google.com'}";
+                                        location.href = "{https://www.google.com}";
                                     }, 3000);
                                 </script>
                             {% endif %}
