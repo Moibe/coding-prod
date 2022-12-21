@@ -31,14 +31,14 @@
                                 </div>
                             {% endif %}
                             
-                            {% if item.featured == false and item.locale != "es" %} 
+                            {% if item.featured == false and item.locale == "uk" %} 
                                 <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
                                         location.href = "{{redirect_url|replace({'{language}':item.locale})}}";
                                     }, 3000);
                                 </script>
-                            {% elseif item.featured == false and item.locale == "es" %} 
+                            {% else %} 
                             <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
