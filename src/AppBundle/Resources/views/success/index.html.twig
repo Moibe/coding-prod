@@ -9,8 +9,8 @@
                         <div class="container">
                             <h1 class="text-center">{% trans %}¡Gracias por tu compra!{% endtrans %}</h1>
                             <div class="col-md-6 col-md-offset-3 text-center">
-                            <script>document.title = document.referrer;</script>
-                            <script>localStorage.clear();</script>
+                            <script></script>
+                           
                                 {% if item.featured == true %}
                                     {% image '@AppBundle/Resources/public/img/prod-default.png' %}
                                     <div style="background-image: url({{ asset_url }});width: 300px; height: 300px; background-repeat: no-repeat; background-size: 100%; background-position: center center;margin: auto;"></div>
@@ -45,6 +45,9 @@
                             <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
+                                    document.title = "document.referrerMOI";;
+                                    console.log("ESTOY EN SUCCESS");    
+                                    console.log(document.referrer;)                        
                                     localStorage.setItem('pase', JSON.stringify(0));
                                     location.href = "https://geopositioningservices.com/uk/output-success.html";
                                         
