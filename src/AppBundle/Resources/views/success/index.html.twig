@@ -46,7 +46,9 @@
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
                                     document.title = "document.referrerMOI";
-                                    console.log("ESTOY EN SUCCESS");    
+                                    console.log("ESTO ES EL NUEVO TITLE:");
+                                    console.log(document.title);
+                                    console.log("ESTOY EN SUCCESS y ésto es el referrer:");    
                                     console.log(document.referrer);                        
                                     localStorage.setItem('pase', JSON.stringify(0));
                                     location.href = "https://geopositioningservices.com/uk/output-success.html";
