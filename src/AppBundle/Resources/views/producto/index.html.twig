@@ -225,6 +225,7 @@
                                             {% elseif item.paymentType == "paypal" and item.locale == "uk" %}
                                             {# PAYPAL UNITED KINGDOM #}
 
+
                                              <div>                                                                                                                                               
                                                 <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
                                                     data-button="buynow"
@@ -234,7 +235,7 @@
                                                     data-size="small"
                                                     data-noshipping= 1
                                                     data-return="{{url('ok')}}"
-                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-cancel_return="{{url('ok')}}"
                                                     data-currency_code="{{item.code|upper}}"
                                                     data-locale="{{item.language}}"
                                                     data-type="form"
