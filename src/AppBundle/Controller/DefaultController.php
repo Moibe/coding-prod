@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Artesanus\ConektaBundle\ConektaInterface;
 
+
 class DefaultController extends Controller {
 
     /**
@@ -25,6 +26,23 @@ class DefaultController extends Controller {
 
     /**
      * @Route("/return/{product}", name="return_url")
+     */
+    public function returnAction(Request $request, $product) {
+
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
+        $item = $repository->findOneBy(array('id' => $product));
+
+        $redirect = $this->generateUrl('homepage');
+
+        if (!$item->getFeatured()) {
+            $redirect = "https://www.geopositioningservices.com";
+        }
+
+        return $this->redirect($redirect);
+    }
+
+    /**
+     * @Route("/retan/{product}", name="retan_url")
      */
     public function returnAction(Request $request, $product) {
 
