@@ -44,7 +44,7 @@ class DefaultController extends Controller {
     /**
      * @Route("/retan/{product}", name="retan_url")
      */
-    public function returnAction(Request $request, $product) {
+    public function retanAction(Request $request, $product) {
 
         $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
         $item = $repository->findOneBy(array('id' => $product));
