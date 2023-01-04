@@ -54,7 +54,7 @@ class DefaultController extends Controller {
         $redirect = $this->generateUrl('homepage');
 
         if (!$item->getFeatured()) {
-            $redirect = "https://www.geopositioningservices.com/{{$lenguaje}}/output-success.html";
+            $redirect = $lenguaje;
         }
 
         return $this->redirect($redirect);
