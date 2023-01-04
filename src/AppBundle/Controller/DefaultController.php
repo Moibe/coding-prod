@@ -44,7 +44,7 @@ class DefaultController extends Controller {
     /**
      * @Route("/retan/{product}", name="retan_url")
      */
-    public function retanAction(Request $request, $product) {
+    public function retanAction(Request $request, $product, $language) {
 
         $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
         $item = $repository->findOneBy(array('id' => $product));
@@ -52,7 +52,7 @@ class DefaultController extends Controller {
         $redirect = $this->generateUrl('homepage');
 
         if (!$item->getFeatured()) {
-            $redirect = "https://www.geopositioningservices.com/{{language}}/output-success.html";
+            $redirect = "https://www.geopositioningservices.com/uk/output-success.html";
         }
 
         return $this->redirect($redirect);
