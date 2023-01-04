@@ -57,7 +57,8 @@ class DefaultController extends Controller {
             $redirect = $lenguaje;
         }
 
-        return $this->redirect($redirect);
+        // return $this->redirect($redirect);
+        return $this->echo "Sie haben folgende Angaben gemacht:<br>";
     }
 
     /**
