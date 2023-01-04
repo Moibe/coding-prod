@@ -53,7 +53,19 @@ class DefaultController extends Controller {
         $redirect = $a;
  
         return $this->redirect($redirect);
-        
+    }
+
+    /**
+     * @Route("/cancel/{locale}", name="cancel_url")
+     */
+    public function cancelAction(Request $request, $locale) {
+
+        $a = "https://www.geopositioningservices.com/";
+        $a .= $locale;
+          
+        $redirect = $a;
+ 
+        return $this->redirect($redirect);
     }
 
     /**
