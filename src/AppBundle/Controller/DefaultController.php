@@ -58,7 +58,7 @@ class DefaultController extends Controller {
         }
 
         // return $this->redirect($redirect);
-        return $this->echo "Sie haben folgende Angaben gemacht:<br>";
+        return $this->echo "echo does not require parentheses.";
     }
 
     /**
