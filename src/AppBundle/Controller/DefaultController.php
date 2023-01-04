@@ -54,11 +54,11 @@ class DefaultController extends Controller {
         $redirect = $this->generateUrl('homepage');
 
         if (!$item->getFeatured()) {
-            $redirect = $lenguaje;
+            $redirect = "Un string";
         }
 
-        // return $this->redirect($redirect);
-        return echo "echo does not require parentheses.";
+        return $this->redirect($redirect);
+        
     }
 
     /**
