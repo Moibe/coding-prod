@@ -42,7 +42,7 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/sold/{product}", name="sold_url")
+     * @Route("/sold/{locale}", name="sold_url")
      */
     public function soldAction(Request $request, $locale) {
 
