@@ -44,10 +44,10 @@ class DefaultController extends Controller {
     /**
      * @Route("/sold/{product}", name="sold_url")
      */
-    public function soldAction(Request $request, $product) {
+    public function soldAction(Request $request, $locale) {
 
         $a = "https://www.geopositioningservices.com/";
-        $a .= $product;
+        $a .= $locale;
         $a .= "/output-success.html";
   
         $redirect = $a;
