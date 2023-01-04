@@ -42,7 +42,7 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/retan/{product}/{lan}", name="retan_url")
+     * @Route("/retan/{product}", name="retan_url")
      */
     public function retanAction(Request $request, $product, $lan) {
 
