@@ -49,12 +49,9 @@ class DefaultController extends Controller {
         $a = "https://www.geopositioningservices.com/";
         $a .= $product;
         $a .= "/output-success.html";
-        
-        
-        if (!$item->getFeatured()) {
-            $redirect = $a;
-        }
-
+  
+        $redirect = $a;
+ 
         return $this->redirect($redirect);
         
     }
