@@ -49,7 +49,8 @@ class DefaultController extends Controller {
         $lenguaje = $request->get('lan');
 
         $a = "Un string";
-        $a .= " con otro stringo";
+        $b = " con otro stringo";
+        $a .= $b;
 
         $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
         $item = $repository->findOneBy(array('id' => $product));
