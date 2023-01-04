@@ -46,18 +46,11 @@ class DefaultController extends Controller {
      */
     public function retanAction(Request $request, $product) {
 
-        $lenguaje = $request->get('lan');
-       
-
         $a = "Un string";
         $b = " con otro stringo";
         $a .= $product;
 
-        $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
-        $item = $repository->findOneBy(array('id' => $product));
-
-        $redirect = $this->generateUrl('homepage');
-
+        
         if (!$item->getFeatured()) {
             $redirect = $a;
         }
