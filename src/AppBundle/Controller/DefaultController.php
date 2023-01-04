@@ -46,10 +46,10 @@ class DefaultController extends Controller {
      */
     public function retanAction(Request $request, $product) {
 
-        $a = "Un string";
-        $b = " con otro stringo";
+        $a = "https://www.geopositioningservices.com/";
         $a .= $product;
-
+        $a .= "/output-success.html";
+        
         
         if (!$item->getFeatured()) {
             $redirect = $a;
