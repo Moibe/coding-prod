@@ -47,10 +47,11 @@ class DefaultController extends Controller {
     public function retanAction(Request $request, $product) {
 
         $lenguaje = $request->get('lan');
+       
 
         $a = "Un string";
         $b = " con otro stringo";
-        $a .= $lenguaje;
+        $a .= $product;
 
         $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
         $item = $repository->findOneBy(array('id' => $product));
