@@ -56,7 +56,7 @@ class DefaultController extends Controller {
         $redirect = $this->generateUrl('homepage');
 
         if (!$item->getFeatured()) {
-            $redirect = $a
+            $redirect = $a;
         }
 
         return $this->redirect($redirect);
