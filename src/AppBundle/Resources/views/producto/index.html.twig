@@ -235,7 +235,7 @@
                                                     data-size="small"
                                                     data-noshipping= 1
                                                     data-return="{{url('ok')}}"
-                                                    data-cancel_return="{{url('retan_url',{"product":item.id}, item.language)}}"
+                                                    data-cancel_return="{{url('retan_url',{"product":item.id}, {"lan":item.language})}}"
                                                     data-currency_code="{{item.code|upper}}"
                                                     data-locale="{{item.language}}"
                                                     data-type="form"
