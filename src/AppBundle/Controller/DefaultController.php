@@ -48,13 +48,15 @@ class DefaultController extends Controller {
 
         $lenguaje = $request->get('lan');
 
+        $a = "Un string";
+
         $repository = $this->getDoctrine()->getRepository('AppBundle:Product');
         $item = $repository->findOneBy(array('id' => $product));
 
         $redirect = $this->generateUrl('homepage');
 
         if (!$item->getFeatured()) {
-            $redirect = "Un string";
+            $redirect = $a
         }
 
         return $this->redirect($redirect);
