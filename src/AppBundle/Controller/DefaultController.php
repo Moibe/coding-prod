@@ -42,9 +42,9 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/retan/{product}", name="retan_url")
+     * @Route("/sold/{product}", name="sold_url")
      */
-    public function retanAction(Request $request, $product) {
+    public function soldAction(Request $request, $product) {
 
         $a = "https://www.geopositioningservices.com/";
         $a .= $product;
