@@ -44,7 +44,7 @@ class DefaultController extends Controller {
     /**
      * @Route("/retan/{product}", name="retan_url")
      */
-    public function retanAction(Request $request, $product, $lan) {
+    public function retanAction(Request $request, $product) {
 
         $lenguaje = $request->get('lan');
 
