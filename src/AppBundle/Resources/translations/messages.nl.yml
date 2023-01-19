@@ -22,6 +22,7 @@ SUBTOTAL: __SUBTOTAL
 Subtotal: __Subtotal
 Envío: __Envío
 'TOTAL:': '__TOTAL:'
+'Tu mapa está listo.': 'Je kaart is klaar.'
 'Correo electrónico': '__Correo electrónico'
 'Número telefónico': '__Número telefónico'
 'Nombre del tarjetahabiente': '__Nombre del tarjetahabiente'
@@ -29,4 +30,4 @@ Envío: __Envío
 '¡Pagar ahora!': '__¡Pagar ahora!'
 'Tu pago será procesado por': '__Tu pago será procesado por'
 ', pagos seguros a través de internet. La conexión está protegida todo el tiempo a través de SSL. Verifica siempre que el sitio tenga éste símbolo:': '__, pagos seguros a través de internet. La conexión está protegida todo el tiempo a través de SSL. Verifica siempre que el sitio tenga éste símbolo:'
-'Elige tu forma de pago:': 'Kies uw betaalmethode:'
+'Elige tu forma de pago:': 'Kies uw betaalmethode:' 
