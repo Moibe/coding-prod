@@ -193,8 +193,8 @@
                                                     data-currency="{{item.code}}"
                                                     data-size="small"
                                                     data-noshipping= 1
-                                                    data-return="{{url('ok')}}"
-                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
+                                                    data-return="{{url('sold_url',{"locale":item.locale})}}"
+                                                    data-cancel_return="{{url('cancel_url',{"locale":item.locale})}}"
                                                     data-currency_code="{{item.code|upper}}"
                                                     data-locale="{{item.language}}"
                                                     data-type="form"
