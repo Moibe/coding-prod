@@ -154,7 +154,7 @@ class PayPal_IPN {
     $rate=$rates["{$request["mc_currency"]}"];
     $mxn=($request["mc_gross"]-$request["mc_fee"])/$rate;
     date_default_timezone_set("America/Mexico_City");
-    $data[]=array("", date("d/m/Y", strtotime($request["payment_date"])), date("H:i:s", strtotime($request["payment_date"])), "CDT", $request["first_name"]." ".$request["last_name"],
+    $data[]=array("", date("d/m/Y", strtotime($request["payment_date"])), date("H:i:s", strtotime($request["payment_date"])), "CDT", $request["first_name"]", "$request["last_name"],
     "Pagos en sitio web", $request["payment_status"], $request["mc_currency"], $request["mc_gross"], $request["mc_fee"], round($request["mc_gross"]-$request["mc_fee"], 2),
     $request["payer_email"], $request["receiver_email"], $request["txn_id"], $request["address_street"]." ".$request["address_city"]." ".$request["address_zip"]." ".$request["address_state"]." ".$request["address_country"],
     "Confirmada", $request["item_name"], $site, $rate, $mxn);
