@@ -16,6 +16,7 @@ $out=fopen("log_cdt", "a");
 $obj = New PayPal_IPN();
 $obj->ipn_response($_POST);
 
+
 class PayPal_IPN {
 
   function ipn($request) {
