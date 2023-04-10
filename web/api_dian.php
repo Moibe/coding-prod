@@ -1,5 +1,5 @@
 <?php
-$webhook_url="https://www.moibe.me/ipn_mywebhook.php";
+$webhook_url="https://www.moibe.me/ipn_webhook.php";
 $site_name="Dian";
 
 // $_POST=unserialize(file_get_contents("paypal_tmp"));
