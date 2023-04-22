@@ -154,7 +154,7 @@
                                                     data-size="small"
                                                     data-noshipping= 1
                                                     data-return="{{url('ok')}}"
-                                                    data-cancel_return="{{url('ok')}}"
+                                                    data-cancel_return="{{url('return_url',{"product":item.id})}}"
                                                     data-currency_code="{{item.code|upper}}"
                                                     data-locale="{{item.language}}"
                                                     data-type="form"
