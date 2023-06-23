@@ -34,7 +34,9 @@
                                 </div>
                             {% endif %}
                             
-                            {% if item.featured == false and item.locale != "uk" %} 
+                            {# {% if item.featured == false and item.locale != "uk" %}  #}
+                            {# Se tenía en UK por cierta prueba que se hizo, pero para regresar a norm, pondre cualquier locale. #}
+                            {% if item.featured == false and item.locale != "zz" %} 
                                 <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
@@ -42,6 +44,7 @@
                                     }, 3000);
                                 </script>
                             {% else %} 
+                            {# Ya no se debería llegar aquí porque UK  ya está incluido arriba. #}
                             <script type="text/javascript">
                                     // Handler for .ready() called.
                                     window.setTimeout(function () {
