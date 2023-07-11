@@ -42,14 +42,16 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/sold/{locale}", name="sold_url")
+     * @Route("/sold/{locale}/{price}", name="sold_url")
      */
-    public function soldAction(Request $request, $locale) {
+    public function soldAction(Request $request, $locale, $price) {
 
         $a = "https://www.geopositioningservices.com/";
         $a .= $locale;
         $a .= "/output-success.html";
-  
+        $a .= "?pr=" . $price;
+
+
         $redirect = $a;
  
         return $this->redirect($redirect);
@@ -62,6 +64,7 @@ class DefaultController extends Controller {
 
         $a = "https://www.geopositioningservices.com/";
         $a .= $locale;
+        
           
         $redirect = $a;
  
