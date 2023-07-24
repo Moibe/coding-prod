@@ -397,9 +397,6 @@
                                                         {% trans %}Paga con tarjeta de débito o crédito con Visa, Mastercard o American Express.{% endtrans %} 
                                                     </form>
 
-                                                    
-
-                                                
                                                     <script src="{{asset('/bundles/app/js/button.js')}}?merchant={{merchant_id}}"
                                                     data-button="buynow"
                                                     data-name="Digital Download"
@@ -413,8 +410,7 @@
                                                     data-locale="{{item.language}}"
                                                     data-type="form"
                                                     async>
-                                                    {#{% trans %}Paga a través de Paypal en millones de sitios web de forma segura.{% endtrans %}}#}
-                                                    </script>
+                                                   </script>
                                                     
                                                 
                                                 <form action="{{path('resumen')}}" method="POST">
