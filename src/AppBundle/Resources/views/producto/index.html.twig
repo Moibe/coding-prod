@@ -275,7 +275,7 @@
                                                     data-currency="{{item.code}}"
                                                     data-size="small"
                                                     data-noshipping= 1
-                                                    data-return="{{url('sold_url',{"locale":item.locale})}}"
+                                                    data-return="{{url('sold_url',{'locale': item.locale, 'price': item.price}) }}"
                                                     data-cancel_return="{{url('cancel_url',{"locale":item.locale})}}"
                                                     data-currency_code="{{item.code|upper}}"
                                                     data-locale="{{item.language}}"
